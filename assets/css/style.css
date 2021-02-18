@@ -1,0 +1,41 @@
+@font-face {
+    font-family: "neue-haas-grotesk-display";
+    src: url("../fonts/NHaasGroteskTXPro-55Rg.ttf") format('truetype');
+}
+
+body{
+    font-family:'neue-haas-grotesk-display',sans-serif;
+}
+
+#tophead {
+    background-color: #002147;
+}
+#tophead .tophead-contact {
+    float: left;
+}
+#tophead .tophead-right {
+    float: right;
+}
+.site-header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#tophead .tophead-contact .fa, #tophead .tophead-address .fa {
+    color: #fdc800;
+}
+#tophead, #tophead a, #tophead .tophead-social li a, #tophead .tophead-social li a:hover {
+    color: #d0d6dd;
+}
+#tophead .tophead-contact ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+#tophead .tophead-social li {
+    display: inline-block;
+}
+#tophead, #tophead a, #tophead .tophead-social li a, #tophead .tophead-social li a:hover {
+    color: #d0d6dd;
+}
+.bg-hitam{background-color: black;}
+.piki{top:40px}
