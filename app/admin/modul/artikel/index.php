@@ -1,4 +1,4 @@
-<?php $this->layout('template', ['hal'=>'Artikel']) ?>
+<?php $this->layout('template', ['hal'=>'Berita']) ?>
 <?php
 	$module = "artikel";
 

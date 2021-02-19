@@ -144,7 +144,7 @@ $router->mount('/admin', function () use ($router, $db, $jmw, $path,$imgname1) {
     });
 
     /** Url Contact **/
-    $router->get('/contact', function () use ($jmw, $db) {
+    $router->get('/kontak', function () use ($jmw, $db) {
         $data = $db->connection("SELECT * FROM page WHERE id_page = 8 ")->fetch();
         echo $jmw->render('modul/page/index', ['act' => 'edit', 'row' => $data]);
     });
@@ -169,7 +169,7 @@ $router->mount('/admin', function () use ($router, $db, $jmw, $path,$imgname1) {
         elseif($id == 13){$hal = "quote";}
         elseif($id == 3){$hal = "prakata";}
         elseif($id == 14){$hal = "profile-video";}
-        
+        elseif($id == 8){$hal = "kontak";}
         include ('modul/page/aksi.php');
     });
 
