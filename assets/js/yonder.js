@@ -32,5 +32,13 @@ $(document).ready(function() {
     $('.slippry-slider').slippry({
         transition:'fade',
         pager:false,
-    })
+    });
+    $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+
+        fixedContentPos: false
+    });
 });

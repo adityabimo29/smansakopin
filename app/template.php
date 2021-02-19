@@ -28,6 +28,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slippry/1.4.0/slippry.min.css"
         integrity="sha512-T+a5Aa01HOiiskCpZYtRZu69nfOIyhjrDn0PRClEQTDKZ16pcdvaU7KD1m0NrQIKn6LqUzY8tgLsfOVGiJs2Rg=="
         crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/magnific-popup.min.css"
+        integrity="sha512-nIm/JGUwrzblLex/meoxJSPdAKQOe2bLhnrZ81g5Jbh519z8GFJIWu87WAhBH+RAyGbM4+U3S2h+kL5JoV6/wA=="
+        crossorigin="anonymous" />
 
     <!-- Main Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css?v<?=date('i:s')?>" />
@@ -41,8 +44,8 @@
     </div>
 
     <!-- Header section  -->
-    <div class="">
-        <div id="tophead" class="d-flex align-items-center">
+    <div class="d-none d-md-block">
+        <div id="tophead" class="d-flex align-items-center ">
             <div class="container">
                 <div class="d-flex justify-content-between">
                     <div class="tophead-contact">
@@ -136,81 +139,12 @@
     </div>
     <div class="clearfix"></div>
     <!-- Header section end  -->
-    <div>
-        <?= $this->section('content')?>
-    </div>
+
+    <?= $this->section('content')?>
 
 
     <!-- Footer section   -->
-    <div class="footer-container-top" style="color: black;">
-        <div class="container">
-            <div class="row " style="padding: 15px;">
-                <div class="col-md-3  ">
-                    <h5 class="mb-4" style="color: white;">LABEL KLAMBI</h5>
-                    <div class="pachi-pachi">
-                        <?=$deskrip[80]?>
-                        <br>
-                        <!-- <a href="https://www.instagram.com/satuoblong"> <i class="fa fa-instagram"></i> </a>
-                        <a href="https://www.facebook.com/satuoblongindonesia/"> <i class="fa fa-facebook"></i> </a>
-                        <a href="https://twitter.com/satuoblong"> <i class="fa fa-twitter"></i> </a> -->
-                    </div>
-                </div>
-                <div class="col-md-3  ">
-                    <h5 class="mb-4" style="color: white;">PRODUK KAMI</h5>
-                    <div>
-                        <?php foreach($menu as $r) : ?>
-                        <div style="line-height:0.5;">
 
-                            <a href="kategori-<?=$r['judul_seo']."-".$r['id_produk_kategori']  ?>"
-                                role="button"><?=$r['judul']?>
-                                (<?=$r['jml']?>)
-                            </a>
-
-                        </div>
-                        <br>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-                <div class="col-md-3 ">
-                    <h5 class="mb-4" style="color: white;">PEMBAYARAN</h5>
-                    <div>
-                        <?=$deskrip[18]?>
-                    </div>
-                    <h5 style="color: white;">PENGIRIMAN</h5>
-                    <div>
-                        <p><?=$deskrip[19]?></p>
-                    </div>
-                </div>
-                <div class="col-md-3 nav-col">
-
-                    <h5 class="mb-4" style="color: white;">NAVIGASI</h5>
-                    <p><a href="produk">Produk</a></p>
-                    <p><a href="cara-pemesanan-pembayaran-label">Cara Order</a></p>
-                    <p><a href="testimoni">Testimoni</a></p>
-                    <p><a href="artikel">Artikel</a></p>
-                    <!--
-                    <div>
-                        <a href="https://www.instagram.com/satuoblong">
-                            <img src="images/igs.png" target="blank" style="height: 80px;">
-                        </a>
-                    </div>
-                    -->
-                </div>
-            </div>
-            <div class="row text-center">
-                <span class="copyright col-xs-12 col-md-12">© 2021 All Right Reserved <a href="labelklambi.com"
-                        style="margin-right: 0px;">Label Klambi</a>, Powered by <a href="https://jogjamediaweb.com"
-                        title="Jogja Media Web | Jasa Pembuatan Website Jogja">JMW</a></span>
-                <span class=" col-md-12  col-xs-12 ">
-                    <small style="font-size:10px">
-                        Today Visitors: 8 |
-                        Total Visitors: 1804 |
-                        Online Visitors: <b>1 </b> </small>
-                </span>
-
-            </div>
-        </div>
-    </div>
     <!-- Footer section end  -->
 
 
@@ -229,6 +163,9 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slippry/1.4.0/slippry.min.js"
         integrity="sha512-AuA2kbI9ByrbsuXrrdqY8qlayz6cFSwLl7qvLBQSMJIWJ5YFjBRKrtVWD3NKWZHOcxqpnqYJtcLaZARXxR+Kjg=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"
+        integrity="sha512-+m6t3R87+6LdtYiCzRhC5+E0l4VQ9qIT1H9+t1wmHkMJvvUQNI5MKKb7b08WL4Kgp9K0IBgHDSLCRJk05cFUYg=="
         crossorigin="anonymous"></script>
 
     <script src="assets/js/yonder.js?<?=date('i:s')?>"></script>

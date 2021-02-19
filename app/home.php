@@ -40,11 +40,11 @@
         <div class="row">
             <div class="col-md-12 col-xs-12">
                 <div class="gallary-header ">
-                    <h2 class="text-center"><strong class="">Video Profil SMAN 1 Kotapinang</strong></h2>
+                    <h2 class="text-center mb-5"><strong class="">Video Profil SMAN 1 Kotapinang</strong></h2>
                     <br>
-                    <div class=" text-center">
-                        <a href="<?=$video['deskripsi']?>" class="kipo">
-                            <i class="fa fa-play fa-4x text-danger"></i>
+                    <div class=" text-center mt-5">
+                        <a href="<?=$video['deskripsi']?>" class="kipo popup-youtube btn-play">
+                            <span></span>
                         </a>
                     </div>
                 </div>
@@ -118,4 +118,3 @@
         </div>
     </div>
 </section>
-

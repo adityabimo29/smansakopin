@@ -91,14 +91,14 @@ $router->get('/testimoni', function () use ($templates,$db) {
 $router->get('/promo', function () use ($templates,$db) {
 
     /** SEO */
-    $templates->addData(['seo' => 'produk']);
+    $templates->addData(['seo' => 'foto']);
 
-    /** Paging Produk */
+    /** Paging foto */
     $page   	    = new pagingAll;
     $batas 		    = 12;
     $idPag          = 1;
     $posisi 	    = $page->cariPosisi($batas,$idPag);
-    $jmldata        = $db->connection("SELECT * FROM produk WHERE promo='Ya' ")->rowCount();
+    $jmldata        = $db->connection("SELECT * FROM foto WHERE promo='Ya' ")->rowCount();
 	$jmlhalaman     = $page->jmlhalaman($jmldata, $batas);
     $linkHalaman    = $page->navHalaman($idPag, $jmlhalaman,'promo');
     $pagination     = array(
@@ -108,25 +108,25 @@ $router->get('/promo', function () use ($templates,$db) {
         'linkHalaman'   => $linkHalaman
     );
 
-    $produk         = $db->connection("SELECT * FROM produk  WHERE promo='Ya'  LIMIT $posisi,$batas ")->fetchAll(PDO::FETCH_ASSOC);
+    $foto         = $db->connection("SELECT * FROM foto  WHERE promo='Ya'  LIMIT $posisi,$batas ")->fetchAll(PDO::FETCH_ASSOC);
     
-    echo $templates->render('promo', ['produk' => $produk,'pagination' => $pagination]);
+    echo $templates->render('promo', ['foto' => $foto,'pagination' => $pagination]);
 
 });
 
 $router->get('/promo-page-(\d+)', function ($id) use ($templates,$db) {
 
     /** SEO */
-    $templates->addData(['seo' => 'produk']);
+    $templates->addData(['seo' => 'foto']);
 
-    /** Paging Produk */
+    /** Paging foto */
     $page   	    = new pagingAll;
     $batas 		    = 12;
     $idPag          = $id;
     $posisi 	    = $page->cariPosisi($batas,$idPag);
-    $jmldata        = $db->connection("SELECT * FROM produk WHERE promo='Ya'  ")->rowCount();
+    $jmldata        = $db->connection("SELECT * FROM foto WHERE promo='Ya'  ")->rowCount();
 	$jmlhalaman     = $page->jmlhalaman($jmldata, $batas);
-    $linkHalaman    = $page->navHalaman($idPag, $jmlhalaman,'produk');
+    $linkHalaman    = $page->navHalaman($idPag, $jmlhalaman,'foto');
     $pagination     = array(
         'batas'         => $batas,
         'jmldata'       => $jmldata,
@@ -134,23 +134,23 @@ $router->get('/promo-page-(\d+)', function ($id) use ($templates,$db) {
         'linkHalaman'   => $linkHalaman
     );
 
-    $produk         = $db->connection("SELECT * FROM produk WHERE promo='Ya'  LIMIT $posisi,$batas ")->fetchAll(PDO::FETCH_ASSOC);
+    $foto         = $db->connection("SELECT * FROM foto WHERE promo='Ya'  LIMIT $posisi,$batas ")->fetchAll(PDO::FETCH_ASSOC);
     
-    echo $templates->render('promo', ['produk' => $produk,'pagination' => $pagination]);
+    echo $templates->render('promo', ['foto' => $foto,'pagination' => $pagination]);
 
 });
 
 $router->get('/terbaru', function () use ($templates,$db) {
 
     /** SEO */
-    $templates->addData(['seo' => 'produk']);
+    $templates->addData(['seo' => 'foto']);
 
-    /** Paging Produk */
+    /** Paging foto */
     $page   	    = new pagingAll;
     $batas 		    = 12;
     $idPag          = 1;
     $posisi 	    = $page->cariPosisi($batas,$idPag);
-    $jmldata        = $db->connection("SELECT * FROM produk ORDER BY tgl DESC ")->rowCount();
+    $jmldata        = $db->connection("SELECT * FROM foto ORDER BY tgl DESC ")->rowCount();
 	$jmlhalaman     = $page->jmlhalaman($jmldata, $batas);
     $linkHalaman    = $page->navHalaman($idPag, $jmlhalaman,'terbaru');
     $pagination     = array(
@@ -160,25 +160,25 @@ $router->get('/terbaru', function () use ($templates,$db) {
         'linkHalaman'   => $linkHalaman
     );
 
-    $produk         = $db->connection("SELECT * FROM produk  ORDER BY tgl DESC  LIMIT $posisi,$batas ")->fetchAll(PDO::FETCH_ASSOC);
+    $foto         = $db->connection("SELECT * FROM foto  ORDER BY tgl DESC  LIMIT $posisi,$batas ")->fetchAll(PDO::FETCH_ASSOC);
     
-    echo $templates->render('terbaru', ['produk' => $produk,'pagination' => $pagination]);
+    echo $templates->render('terbaru', ['foto' => $foto,'pagination' => $pagination]);
 
 });
 
 $router->get('/terbaru-page-(\d+)', function ($id) use ($templates,$db) {
 
     /** SEO */
-    $templates->addData(['seo' => 'produk']);
+    $templates->addData(['seo' => 'foto']);
 
-    /** Paging Produk */
+    /** Paging foto */
     $page   	    = new pagingAll;
     $batas 		    = 12;
     $idPag          = $id;
     $posisi 	    = $page->cariPosisi($batas,$idPag);
-    $jmldata        = $db->connection("SELECT * FROM produk WHERE terbaru='Ya'  ")->rowCount();
+    $jmldata        = $db->connection("SELECT * FROM foto WHERE terbaru='Ya'  ")->rowCount();
 	$jmlhalaman     = $page->jmlhalaman($jmldata, $batas);
-    $linkHalaman    = $page->navHalaman($idPag, $jmlhalaman,'produk');
+    $linkHalaman    = $page->navHalaman($idPag, $jmlhalaman,'foto');
     $pagination     = array(
         'batas'         => $batas,
         'jmldata'       => $jmldata,
@@ -186,26 +186,26 @@ $router->get('/terbaru-page-(\d+)', function ($id) use ($templates,$db) {
         'linkHalaman'   => $linkHalaman
     );
 
-    $produk         = $db->connection("SELECT * FROM produk WHERE terbaru='Ya'  LIMIT $posisi,$batas ")->fetchAll(PDO::FETCH_ASSOC);
+    $foto         = $db->connection("SELECT * FROM foto WHERE terbaru='Ya'  LIMIT $posisi,$batas ")->fetchAll(PDO::FETCH_ASSOC);
     
-    echo $templates->render('terbaru', ['produk' => $produk,'pagination' => $pagination]);
+    echo $templates->render('terbaru', ['foto' => $foto,'pagination' => $pagination]);
 
 });
 
 
-$router->get('/produk', function () use ($templates,$db) {
+$router->get('/foto', function () use ($templates,$db) {
 
     /** SEO */
-    $templates->addData(['seo' => 'produk']);
+    $templates->addData(['seo' => 'foto']);
 
-    /** Paging Produk */
+    /** Paging foto */
     $page   	    = new pagingAll;
     $batas 		    = 12;
     $idPag          = 1;
     $posisi 	    = $page->cariPosisi($batas,$idPag);
-    $jmldata        = $db->connection('SELECT * FROM produk  ')->rowCount();
+    $jmldata        = $db->connection('SELECT * FROM foto  ')->rowCount();
 	$jmlhalaman     = $page->jmlhalaman($jmldata, $batas);
-    $linkHalaman    = $page->navHalaman($idPag, $jmlhalaman,'produk');
+    $linkHalaman    = $page->navHalaman($idPag, $jmlhalaman,'foto');
     $pagination     = array(
         'batas'         => $batas,
         'jmldata'       => $jmldata,
@@ -213,25 +213,25 @@ $router->get('/produk', function () use ($templates,$db) {
         'linkHalaman'   => $linkHalaman
     );
 
-    $produk         = $db->connection("SELECT * FROM produk  LIMIT $posisi,$batas ")->fetchAll(PDO::FETCH_ASSOC);
+    $foto         = $db->connection("SELECT * FROM foto  LIMIT $posisi,$batas ")->fetchAll(PDO::FETCH_ASSOC);
     
-    echo $templates->render('produk', ['produk' => $produk,'pagination' => $pagination]);
+    echo $templates->render('foto', ['foto' => $foto,'pagination' => $pagination]);
 
 });
 
-$router->get('/produk-page-(\d+)', function ($id) use ($templates,$db) {
+$router->get('/foto-page-(\d+)', function ($id) use ($templates,$db) {
 
     /** SEO */
-    $templates->addData(['seo' => 'produk']);
+    $templates->addData(['seo' => 'foto']);
 
-    /** Paging Produk */
+    /** Paging foto */
     $page   	    = new pagingAll;
     $batas 		    = 12;
     $idPag          = $id;
     $posisi 	    = $page->cariPosisi($batas,$idPag);
-    $jmldata        = $db->connection('SELECT * FROM produk  ')->rowCount();
+    $jmldata        = $db->connection('SELECT * FROM foto  ')->rowCount();
 	$jmlhalaman     = $page->jmlhalaman($jmldata, $batas);
-    $linkHalaman    = $page->navHalaman($idPag, $jmlhalaman,'produk');
+    $linkHalaman    = $page->navHalaman($idPag, $jmlhalaman,'foto');
     $pagination     = array(
         'batas'         => $batas,
         'jmldata'       => $jmldata,
@@ -239,9 +239,9 @@ $router->get('/produk-page-(\d+)', function ($id) use ($templates,$db) {
         'linkHalaman'   => $linkHalaman
     );
 
-    $produk         = $db->connection("SELECT * FROM produk  LIMIT $posisi,$batas ")->fetchAll(PDO::FETCH_ASSOC);
+    $foto         = $db->connection("SELECT * FROM foto  LIMIT $posisi,$batas ")->fetchAll(PDO::FETCH_ASSOC);
     
-    echo $templates->render('produk', ['produk' => $produk,'pagination' => $pagination]);
+    echo $templates->render('foto', ['foto' => $foto,'pagination' => $pagination]);
 
 });
 
@@ -249,14 +249,14 @@ $router->get('/produk-page-(\d+)', function ($id) use ($templates,$db) {
 $router->get('/kategori-(.*)-(\d+)-page-(\d+)', function ($slug,$id,$pg) use ($templates,$db) {
 
     /** SEO */
-    $templates->addData(['seo' => 'produk']);
+    $templates->addData(['seo' => 'foto']);
 
-    /** Paging Produk */
+    /** Paging foto */
     $page   	    = new pagingAll;
     $batas 		    = 12;
     $idPag          = $pg;
     $posisi 	    = $page->cariPosisi($batas,$idPag);
-    $jmldata        = $db->connection("SELECT * FROM produk WHERE id_produk_kategori = $id  ")->rowCount();
+    $jmldata        = $db->connection("SELECT * FROM foto WHERE id_foto_kategori = $id  ")->rowCount();
 	$jmlhalaman     = $page->jmlhalaman($jmldata, $batas);
     $linkHalaman    = $page->navHalaman($idPag, $jmlhalaman,"kategori-$slug-$id");
     $pagination     = array(
@@ -266,11 +266,11 @@ $router->get('/kategori-(.*)-(\d+)-page-(\d+)', function ($slug,$id,$pg) use ($t
         'linkHalaman'   => $linkHalaman
     );
 
-    $judul          = $db->connection("SELECT judul FROM produk_kategori WHERE id_produk_kategori = $id  ")->fetchColumn();
+    $judul          = $db->connection("SELECT judul FROM foto_kategori WHERE id_foto_kategori = $id  ")->fetchColumn();
 
-    $produk         = $db->connection("SELECT * FROM produk WHERE id_produk_kategori = $id  LIMIT $posisi,$batas ")->fetchAll(PDO::FETCH_ASSOC);
+    $foto         = $db->connection("SELECT * FROM foto WHERE id_foto_kategori = $id  LIMIT $posisi,$batas ")->fetchAll(PDO::FETCH_ASSOC);
     
-    echo $templates->render('kategoriProduk', ['judul'=>$judul,'produk' => $produk,'pagination' => $pagination]);
+    echo $templates->render('kategorifoto', ['judul'=>$judul,'foto' => $foto,'pagination' => $pagination]);
 
 });
 
@@ -278,14 +278,14 @@ $router->get('/kategori-(.*)-(\d+)-page-(\d+)', function ($slug,$id,$pg) use ($t
 $router->get('/kategori-(.*)-(\d+)', function ($slug,$id) use ($templates,$db) {
 
     /** SEO */
-    $templates->addData(['seo' => 'produk']);
+    $templates->addData(['seo' => 'foto']);
 
-    /** Paging Produk */
+    /** Paging foto */
     $page   	    = new pagingAll;
     $batas 		    = 12;
     $idPag          = 1;
     $posisi 	    = $page->cariPosisi($batas,$idPag);
-    $jmldata        = $db->connection("SELECT * FROM produk WHERE id_produk_kategori = $id  ")->rowCount();
+    $jmldata        = $db->connection("SELECT * FROM foto WHERE id_foto_kategori = $id  ")->rowCount();
 	$jmlhalaman     = $page->jmlhalaman($jmldata, $batas);
     $linkHalaman    = $page->navHalaman($idPag, $jmlhalaman,"kategori-$slug-$id");
     $pagination     = array(
@@ -295,26 +295,23 @@ $router->get('/kategori-(.*)-(\d+)', function ($slug,$id) use ($templates,$db) {
         'linkHalaman'   => $linkHalaman
     );
 
-    $judul          = $db->connection("SELECT judul FROM produk_kategori WHERE id_produk_kategori = $id  ")->fetchColumn();
-    $produk         = $db->connection("SELECT * FROM produk WHERE id_produk_kategori = $id  LIMIT $posisi,$batas ")->fetchAll(PDO::FETCH_ASSOC);
+    $judul          = $db->connection("SELECT judul FROM foto_kategori WHERE id_foto_kategori = $id  ")->fetchColumn();
+    $foto         = $db->connection("SELECT * FROM foto WHERE id_foto_kategori = $id  LIMIT $posisi,$batas ")->fetchAll(PDO::FETCH_ASSOC);
     
-    echo $templates->render('kategoriProduk', ['judul'=>$judul,'produk' => $produk,'pagination' => $pagination]);
+    echo $templates->render('kategorifoto', ['judul'=>$judul,'foto' => $foto,'pagination' => $pagination]);
 
 });
 
 
 
-$router->get('/label-baju-(.*)-(\d+)', function ($slug,$id) use ($templates,$db) {
+$router->get('/foto-(.*)-(\d+)', function ($slug,$id) use ($templates,$db) {
 
     /** SEO */
-    $templates->addData(['seo' => 'detproduk', 'id_seo' => $id]);
+    $templates->addData(['seo' => 'detfoto', 'id_seo' => $id]);
 
-    $datas        = $db->read('produk', '*', "id_produk = $id ")->fetch();
-    $gallery      = $db->connection("SELECT * FROM gallery_produk WHERE id_produk = $id ");
-    $jmlGallery   = $db->connection("SELECT COUNT(*) FROM gallery_produk WHERE id_produk = $id ")->fetchColumn();
-    $produk       = $db->connection("SELECT * FROM produk WHERE id_produk != $id LIMIT 4");
-    $size         = $db->connection("SELECT * FROM produk_size WHERE id_produk = $id ");
-    echo $templates->render('detproduk', ['data' => $datas,'produk' => $produk, 'gallery'=> $gallery, 'jmlGallery' => $jmlGallery,'size' => $size] );
+    $datas        = $db->read('foto', '*', "id_foto = $id ")->fetch();
+    $gallery      = $db->connection("SELECT * FROM gallery_foto WHERE id_foto = $id ");
+    echo $templates->render('detfoto', ['data' => $datas, 'gallery'=> $gallery] );
 
 });
 
@@ -355,7 +352,7 @@ $router->post('/contact', function () use ($templates,$db,$csrf) {
 });
 
 $router->post('/cari', function () use ($templates,$db) {
-    $cari = $db->connection("SELECT * FROM Produk WHERE nama LIKE '%$_POST[cari]%' ")->fetchAll();
+    $cari = $db->connection("SELECT * FROM foto WHERE nama LIKE '%$_POST[cari]%' ")->fetchAll();
     echo $templates->render('cari', ['porto' => $cari] );
 });
 
