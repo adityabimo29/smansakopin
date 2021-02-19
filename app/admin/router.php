@@ -92,6 +92,11 @@ $router->mount('/admin', function () use ($router, $db, $jmw, $path,$imgname1) {
         include ($path . 'admin/aksi.php');
     });
 
+    /** Setting File Manager **/
+    $router->get('/file-manager', function () use ($jmw, $db, $path) {
+        echo $jmw->render('modul/filemanager/index');
+    });
+
 /*
  * ------------------------------------------------------
  *  Router Dashboard
@@ -126,9 +131,15 @@ $router->mount('/admin', function () use ($router, $db, $jmw, $path,$imgname1) {
         echo $jmw->render('modul/page/index', ['act' => 'edit', 'row' => $data]);
     });
 
-    /** Url Cara Order **/
-    $router->get('/cara-order', function () use ($jmw, $db, $path) {
-        $data = $db->connection("SELECT * FROM page WHERE id_page = 9 ")->fetch();
+    /** Url Quote **/
+    $router->get('/quote', function () use ($jmw, $db, $path) {
+        $data = $db->connection("SELECT * FROM page WHERE id_page = 13 ")->fetch();
+        echo $jmw->render('modul/page/index', ['act' => 'edit', 'row' => $data]);
+    });
+
+    /** Url Prakata **/
+    $router->get('/prakata', function () use ($jmw, $db, $path) {
+        $data = $db->connection("SELECT * FROM page WHERE id_page = 3 ")->fetch();
         echo $jmw->render('modul/page/index', ['act' => 'edit', 'row' => $data]);
     });
 
@@ -138,17 +149,27 @@ $router->mount('/admin', function () use ($router, $db, $jmw, $path,$imgname1) {
         echo $jmw->render('modul/page/index', ['act' => 'edit', 'row' => $data]);
     });
 
+    /** Url Contact **/
+    $router->get('/profile-video', function () use ($jmw, $db) {
+        $data = $db->connection("SELECT * FROM page WHERE id_page = 14 ")->fetch();
+        echo $jmw->render('modul/page/index', ['act' => 'edit', 'row' => $data]);
+    });
+
+    /** Url Page **/
+    $router->get('/page-edit-(\d+)', function ($id) use ($jmw, $db) {
+        $data = $db->connection("SELECT * FROM page WHERE id_page = $id ")->fetch();
+        echo $jmw->render('modul/page/index', ['act' => 'edit', 'row' => $data]);
+    });
+
     /** Update Page **/
     $router->post('/page', function () use ($jmw, $db, $path) {
         $id  = $_POST['id_page'];
         $act = "update";
-        if($id == 0){
-            $hal = "home";
-        }elseif($id == 9){
-            $hal = "cara-order";
-        }elseif($id == 8){
-            $hal = "contact";
-        }
+        if($id == 0){$hal = "home";}
+        elseif($id == 13){$hal = "quote";}
+        elseif($id == 3){$hal = "prakata";}
+        elseif($id == 14){$hal = "profile-video";}
+        
         include ('modul/page/aksi.php');
     });
 
@@ -219,149 +240,78 @@ $router->mount('/admin', function () use ($router, $db, $jmw, $path,$imgname1) {
 
 /*
  * ------------------------------------------------------
- *  Router Kategori Produk
+ *  Router Foto
  * ------------------------------------------------------
  */
 
-    /** Url produk Kategori **/
-    $router->get('/kategori-produk', function () use ($jmw, $db) {
-        $tampil = $db->connection("SELECT * FROM produk_kategori  ORDER BY id_produk_kategori DESC");
-        echo $jmw->render('modul/produk_kategori/index', ['act' => 'list', 'tampil' => $tampil]);
+    /** Url foto **/
+    $router->get('/foto', function () use ($jmw, $db) {
+        $dataku = $db->connection("SELECT * FROM foto ORDER BY tgl ASC");
+        echo $jmw->render('modul/foto/index', ['act' => 'list', 'tampil' => $dataku]);
     });
 
-    /** Update dan Add produk Kategori **/
-    $router->post('/kategori-produk', function () use ($jmw, $db, $path) {
-        if (isset($_POST['id_produk_kategori'])) {
+    /** Show Add Form foto **/
+    $router->get('/foto-add', function () use ($jmw, $db) {
+        echo $jmw->render('modul/foto/index', ['act' => 'add']);
+    });
+
+    /** Show Edit Form foto **/
+    $router->get('/foto-edit-(\d+)', function ($id) use ($jmw, $db) {
+        $data    = $db->connection("SELECT * FROM foto WHERE id_foto = $id ")->fetch();
+        $gallery = $db->connection("SELECT * FROM gallery_foto WHERE id_foto='$data[id_foto]' ORDER BY id_gallery ASC")->fetchAll();
+        echo $jmw->render('modul/foto/index', ['act' => 'edit', 'data' => $data,'gallery' => $gallery]);
+    });
+
+    /** Update dan Add foto  **/
+    $router->post('/foto', function () use ($jmw, $db, $path) {
+        if (isset($_POST['id_foto'])) {
             $act = "update";
         } else {
             $act = "add";
         }
-        $hal = "kategori-produk";
-        include ($path . 'produk_kategori/aksi.php');
+        $hal = "foto";
+        include ($path . 'foto/aksi.php');
     });
 
-    /** Delete produk Kategori **/
-    $router->get('/kategori-produk-delete-(\d+)', function ($id) use ($jmw, $db, $path) {
+    /** Delete foto **/
+    $router->get('/foto-delete-(\d+)', function ($id) use ($jmw, $db, $path) {
         $act = "remove";
-        $hal = "kategori-produk";
-        include ($path . 'produk_kategori/aksi.php');
-    });
-
-/*
- * ------------------------------------------------------
- *  Router Produk
- * ------------------------------------------------------
- */
-
-    /** Url produk **/
-    $router->get('/produk', function () use ($jmw, $db) {
-        $dataku = $db->connection("SELECT *, p.judul AS judulku FROM produk p JOIN produk_kategori k ON k.id_produk_kategori = p.id_produk_kategori ORDER BY p.tgl ASC");
-        echo $jmw->render('modul/produk/index', ['act' => 'list', 'tampil' => $dataku]);
-    });
-
-    /** Show Add Form produk **/
-    $router->get('/produk-add', function () use ($jmw, $db) {
-        $kat = $db->connection("SELECT * FROM produk_kategori ORDER BY id_produk_kategori DESC")->fetchAll();
-        echo $jmw->render('modul/produk/index', ['act' => 'add', 'kat' => $kat]);
-    });
-
-    /** Show Edit Form produk **/
-    $router->get('/produk-edit-(\d+)', function ($id) use ($jmw, $db) {
-        $data    = $db->connection("SELECT * FROM produk WHERE id_produk = $id ")->fetch();
-        $kat     = $db->connection("SELECT * FROM produk_kategori ORDER BY id_produk_kategori DESC")->fetchAll();
-        $size    = $db->connection("SELECT * FROM produk_size WHERE id_produk = $id ");
-        $gallery = $db->connection("SELECT * FROM gallery_produk WHERE id_produk='$data[id_produk]' ORDER BY id_gallery ASC")->fetchAll();
-        echo $jmw->render('modul/produk/index', ['act' => 'edit', 'data' => $data, 'kat' => $kat, 'size'=> $size,'gallery' => $gallery]);
-    });
-
-    /** Update dan Add produk  **/
-    $router->post('/produk', function () use ($jmw, $db, $path) {
-        if (isset($_POST['id_produk'])) {
-            $act = "update";
-        } else {
-            $act = "add";
-        }
-        $hal = "produk";
-        include ($path . 'produk/aksi.php');
-    });
-
-    /** Delete produk **/
-    $router->get('/produk-delete-(\d+)', function ($id) use ($jmw, $db, $path) {
-        $act = "remove";
-        $hal = "produk";
-        include ($path . 'produk/aksi.php');
+        $hal = "foto";
+        include ($path . 'foto/aksi.php');
     });
 
 
-    /** Show Add Form Gallery Produk **/
-    $router->get('/produk-addgallery-(\d+)', function ($id) use ($jmw, $db) {
-        echo $jmw->render('modul/produk/index', ['act' => 'addgallery', 'id' => $id]);
+    /** Show Add Form Gallery foto **/
+    $router->get('/foto-addgallery-(\d+)', function ($id) use ($jmw, $db) {
+        echo $jmw->render('modul/foto/index', ['act' => 'addgallery', 'id' => $id]);
     });
 
 
-    /** Show Edit Form  Gallery Produk **/
-    $router->get('/produk-editgallery-(\d+)', function ($id) use ($jmw, $db) {
-        $data    = $db->connection("SELECT * FROM gallery_produk WHERE id_gallery = $id ")->fetch();
-        echo $jmw->render('modul/produk/index', ['act' => 'editgallery', 'data' => $data]);
+    /** Show Edit Form  Gallery foto **/
+    $router->get('/foto-editgallery-(\d+)', function ($id) use ($jmw, $db) {
+        $data    = $db->connection("SELECT * FROM gallery_foto WHERE id_gallery = $id ")->fetch();
+        echo $jmw->render('modul/foto/index', ['act' => 'editgallery', 'data' => $data]);
     });
 
 
-    /** Update dan Add  Gallery Produk  **/
-    $router->post('/produk-gallery', function () use ($jmw, $db, $path) {
+    /** Update dan Add  Gallery foto  **/
+    $router->post('/foto-gallery', function () use ($jmw, $db, $path) {
         if (isset($_POST['id'])) {
             $act = "editgallery";
         } else {
             $act = "addgallery";
         }
-        $hal = "produk";
-        include ($path . 'produk/aksi.php');
+        $hal = "foto";
+        include ($path . 'foto/aksi.php');
     });
 
 
-    /** Delete Gallery Produk **/
-    $router->get('/produk-gallery-delete-(\d+)-(\d+)', function ($id,$id_produk) use ($jmw, $db, $path,$imgname1) {
+    /** Delete Gallery foto **/
+    $router->get('/foto-gallery-delete-(\d+)-(\d+)', function ($id,$id_foto) use ($jmw, $db, $path,$imgname1) {
         $act = "removegallery";
-        $hal = "produk";
-        include ($path . 'produk/aksi.php');
+        $hal = "foto";
+        include ($path . 'foto/aksi.php');
     });
-
-
-/*
- * ------------------------------------------------------
- *  Router Produk Size
- * ------------------------------------------------------
- */
-
-
-    /** Show Add Form produk size **/
-    $router->get('/produk-size-add-(\d+)', function ($id) use ($jmw, $db) {
-        echo $jmw->render('modul/produk_size/index', ['act' => 'add' , 'id' => $id]);
-    });
-
-    /** Show Edit Form produk size **/
-    $router->get('/produk-size-edit-(\d+)', function ($id) use ($jmw, $db) {
-        $size   = $db->connection("SELECT * FROM produk_size WHERE id_produk_size = $id ")->fetch();
-        echo $jmw->render('modul/produk_size/index', ['act' => 'edit', 'data'=> $size]);
-    });
-
-    /** Update dan Add produk size  **/
-    $router->post('/produk-size', function () use ($jmw, $db, $path) {
-        if (isset($_POST['id_produk_size'])) {
-            $act = "update";
-        } else {
-            $act = "add";
-        }
-        $hal = "produk";
-        include ($path . 'produk_size/aksi.php');
-    });
-
-    /** Delete produk size **/
-    $router->get('/produk-size-delete-(\d+)', function ($id) use ($jmw, $db, $path) {
-        $act = "remove";
-        $hal = "produk";
-        include ($path . 'produk_size/aksi.php');
-    });
-
 
 /*
  * ------------------------------------------------------

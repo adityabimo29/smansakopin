@@ -1,5 +1,5 @@
 <?php
-
+	use \Gumlet\ImageResize;
 	if($act=='update'){
 		if(isset($_FILES['lopoFile']['name'])){
 			$lokasi_file 	= $_FILES['lopoFile']['tmp_name'];
@@ -43,6 +43,13 @@
 				} else {
 					UploadPagan( $nama_file_unik );
 					$gambar = $nama_file_unik;
+
+                    $pathSmall = 'images/' . $nama_file_unik;
+
+                    $image = new ImageResize($pathSmall);
+                    $image->resize(1349, 700);
+                    $image->save($pathSmall);
+
 				}
 				// $res = lopoUpload( $seojdul.'-'.$acak, 'page' );
 				//unlink("images/$nama_file_unik");

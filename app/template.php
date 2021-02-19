@@ -6,18 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?=$this->insert('seo')?>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2b5797">
     <meta name="theme-color" content="#ffffff">
 
     <!-- Google font -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
@@ -25,6 +24,9 @@
         crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slippry/1.4.0/slippry.min.css"
+        integrity="sha512-T+a5Aa01HOiiskCpZYtRZu69nfOIyhjrDn0PRClEQTDKZ16pcdvaU7KD1m0NrQIKn6LqUzY8tgLsfOVGiJs2Rg=="
         crossorigin="anonymous" />
 
     <!-- Main Stylesheets -->
@@ -40,49 +42,46 @@
 
     <!-- Header section  -->
     <div class="">
-        <div id="tophead">
+        <div id="tophead" class="d-flex align-items-center">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="tophead-contact">
-                            <ul>
-                                <li>
-                                    <i class="fa fa-phone" aria-hidden="true"></i><a href="tel:(0274) 562292">(0274)
-                                        562292</a>
-                                </li>
-                                <li>
-                                    <i class="fa fa-envelope-o" aria-hidden="true"></i><a
-                                        href="mailto:info@smamuh5yk.sch.id">info@smamuh5yk.sch.id</a>
-                                </li>
-                            </ul>
+                <div class="d-flex justify-content-between">
+                    <div class="tophead-contact">
+                        <div class="d-flex justify-content-around troop">
+                            <div>
+                                <i class="fa fa-phone" aria-hidden="true"></i> <a
+                                    href="tel:<?=$deskrip[82]?>"><?=$deskrip[82]?></a>
+                            </div>
+                            <div>
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i> <a
+                                    href="mailto:<?=$sosmed[5]['link']?>"><?=$sosmed[5]['link']?></a>
+                            </div>
                         </div>
-                        <div class="tophead-right">
-                            <ul class="tophead-social">
-                                <li><a target="_blank" href="https://www.facebook.com/smamuh5yk"><i
-                                            class="fa fa-facebook"></i></a></li>
-                                <li><a target="_blank" href="https://twitter.com/smamuh5yk"><i
-                                            class="fa fa-twitter"></i></a></li>
-                                <li><a target="_blank" href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a target="_blank" href="http://www.youtube.com/c/smamuh5yk"><i
-                                            class="fa fa-youtube"></i></a></li>
-                                <li><a target="_blank" href="https://www.instagram.com/smamuh5yk"><i
-                                            class="fa fa-instagram"></i></a></li>
-                                <li><a target="_blank" href="#"><i class="fa fa-rss"></i></a></li>
-
-                            </ul>
+                    </div>
+                    <div class="tophead-right">
+                        <div class="tophead-social d-flex justify-content-around troop">
+                            <div><a target="_blank" href="https://www.facebook.com/smamuh5yk"><i
+                                        class="fa fa-facebook"></i></a></div>
+                            <div><a target="_blank" href="https://twitter.com/smamuh5yk"><i
+                                        class="fa fa-twitter"></i></a></div>
+                            <div><a target="_blank" href="#"><i class="fa fa-google-plus"></i></a></div>
+                            <div><a target="_blank" href="http://www.youtube.com/c/smamuh5yk"><i
+                                        class="fa fa-youtube"></i></a></div>
+                            <div><a target="_blank" href="https://www.instagram.com/smamuh5yk"><i
+                                        class="fa fa-instagram"></i></a>
+                            </div>
+                            <div><a target="_blank" href="#"><i class="fa fa-rss"></i></a></div>
                         </div>
-                        <div class="clear"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-hitam  fixed-top piki"
+        <nav class="navbar navbar-expand-lg navbar-dark bg-putih  fixed-top piki"
             style="border-bottom: 1px solid #00000052;">
             <div class="container " style="display:block">
                 <div class="row">
                     <div class="col-md-2 align-self-center">
                         <a class="navbar-brand" href="#">
-                            <img style="align-self: center;" class="w-100" src="images/<?=$deskrip[1]?>" alt="">
+                            <img style="align-self: center;" class="logo-top" src="images/<?=$deskrip[1]?>" alt="">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -222,9 +221,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
         integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA=="
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.2/jquery-migrate.min.js"
+        integrity="sha512-3fMsI1vtU2e/tVxZORSEeuMhXnT9By80xlmXlsOku7hNwZSHJjwcOBpmy+uu+fyWwGCLkMvdVbHkeoXdAzBv+w=="
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha512-Ah5hWYPzDsVHf9i2EejFBFrG2ZAPmpu4ZJtW4MfSgpZacn+M9QHDt+Hd/wL1tEkk1UgbzqepJr6KnhZjFKB+0A=="
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slippry/1.4.0/slippry.min.js"
+        integrity="sha512-AuA2kbI9ByrbsuXrrdqY8qlayz6cFSwLl7qvLBQSMJIWJ5YFjBRKrtVWD3NKWZHOcxqpnqYJtcLaZARXxR+Kjg=="
+        crossorigin="anonymous"></script>
+
     <script src="assets/js/yonder.js?<?=date('i:s')?>"></script>
 
 

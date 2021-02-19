@@ -71,16 +71,22 @@
                                         <span class="hide-menu">Slider</span>
                                     </a>
                                 </li>
-                                <!-- <li class="sidebar-item">
-                                    <a href="gallery" class="sidebar-link">
-                                        <i class="sl-icon-arrow-right"></i>
-                                        <span class="hide-menu">Gallery IG</span>
-                                    </a>
-                                </li> -->
                                 <li class="sidebar-item">
-                                    <a href="banner" class="sidebar-link">
+                                    <a href="quote" class="sidebar-link">
                                         <i class="sl-icon-arrow-right"></i>
-                                        <span class="hide-menu">Banner</span>
+                                        <span class="hide-menu">Quote</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="prakata" class="sidebar-link">
+                                        <i class="sl-icon-arrow-right"></i>
+                                        <span class="hide-menu">Prakata</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="profile-video" class="sidebar-link">
+                                        <i class="sl-icon-arrow-right"></i>
+                                        <span class="hide-menu">Video Profile </span>
                                     </a>
                                 </li>
                             </ul>
@@ -89,55 +95,71 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                 aria-expanded="false">
-                                <i class="sl-icon-present"></i>
-                                <span class="hide-menu">Produk </span>
+                                <i class="sl-icon-emotsmile"></i>
+                                <span class="hide-menu">Profil </span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item">
                                     <a href="kategori-produk" class="sidebar-link">
                                         <i class="sl-icon-arrow-right"></i>
-                                        <span class="hide-menu"> Kategori</span>
+                                        <span class="hide-menu">Profil Sekolah</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
                                     <a href="produk" class="sidebar-link">
                                         <i class="sl-icon-arrow-right"></i>
-                                        <span class="hide-menu"> Produk</span>
+                                        <span class="hide-menu">Guru & Staf</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="produk" class="sidebar-link">
+                                        <i class="sl-icon-arrow-right"></i>
+                                        <span class="hide-menu">Visi Misi</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="produk" class="sidebar-link">
+                                        <i class="sl-icon-arrow-right"></i>
+                                        <span class="hide-menu">Sarana Prasarana</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="produk" class="sidebar-link">
+                                        <i class="sl-icon-arrow-right"></i>
+                                        <span class="hide-menu">Prestasi</span>
                                     </a>
                                 </li>
 
                             </ul>
                         </li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="cara-order"
-                                aria-expanded="false">
-                                <i class="sl-icon-direction"></i>
-                                <span class="hide-menu">Cara Order</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="testimoni"
-                                aria-expanded="false">
-                                <i class="sl-icon-emotsmile"></i>
-                                <span class="hide-menu">Testimoni</span>
-                            </a>
-                        </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="artikel"
                                 aria-expanded="false">
                                 <i class="sl-icon-notebook"></i>
-                                <span class="hide-menu">Artikel</span>
+                                <span class="hide-menu">Berita</span>
                             </a>
                         </li>
-                        <!-- <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="contact"
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="foto"
                                 aria-expanded="false">
-                                <i class="sl-icon-paper-plane"></i>
+                                <i class="sl-icon-picture"></i>
+                                <span class="hide-menu">Galeri Foto</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="video"
+                                aria-expanded="false">
+                                <i class="sl-icon-control-play"></i>
+                                <span class="hide-menu">Galeri Video</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="kontak"
+                                aria-expanded="false">
+                                <i class="sl-icon-phone"></i>
                                 <span class="hide-menu">Kontak</span>
                             </a>
-                        </li> -->
+                        </li>
 
                         <li class="nav-small-cap">
                             <i class="sl-icon-options"></i>
@@ -152,10 +174,10 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="snapwidget"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="file-manager"
                                 aria-expanded="false">
-                                <i class="sl-icon-social-instagram"></i>
-                                <span class="hide-menu">SnapWidget</span>
+                                <i class="sl-icon-folder-alt"></i>
+                                <span class="hide-menu">File Manager</span>
                             </a>
                         </li>
 

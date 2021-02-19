@@ -1,9 +1,9 @@
 <?php
-$default 	= "Jasa Buat Label Baju Jogja Harga Murah, Pembuatan Label baju, Buat Label Merk, Cetak label baju,label baju bagus";
-$default2 	= "Jasa Buat Label Baju Jogja Harga Murah, Pembuatan Label baju, Buat Label Merk, Cetak label baju,label baju bagus";
-$judul  	= "Jasa Buat Label Baju Jogja Harga Murah, Pembuatan Label baju, Buat Label Merk, Cetak label baju,label baju bagus";
-$default3 	= "https://www.labelklambi.com";
-$default4 	=  "https://labelklambi.com";
+$default 	= "SMAN 1 Kotapinang";
+$default2 	= "SMAN 1 Kotapinang";
+$judul  	= "SMAN 1 Kotapinang";
+$default3 	= "https://www.smansakopin.com";
+$default4 	= "https://smansakopin.com";
 $seourl     = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $urlshare   = $seourl ; 
 if($seo=='home' ){
@@ -118,7 +118,7 @@ elseif($seo=='contact'){
     <title><?php echo $judul; ?></title>
     <meta name="keywords" content="<?php echo $keyword; ?>">
     <meta name="description" content="<?php echo $description; ?>">
-    <link rel="icon" type="image/x-icon" href="images/icon.jpg?v" />
+    
 
 
     <meta name="googlebot" content="index,follow">

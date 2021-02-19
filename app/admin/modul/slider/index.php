@@ -59,16 +59,15 @@
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="message-text" class="control-label">Gambar Desktop</label>
-                        <input type="file" class="form-control" name="lopoFile" required>
-                        <small style="color:red">*) ukuran minimal 1349 x 421,5 px</small>
+                        <label for="">Deskripsi</label>
+                        <textarea id="ckeditor2" class="ckeditor2" name="deskripsi"></textarea>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="message-text" class="control-label">Gambar Mobile</label>
-                        <input type="file" class="form-control" name="gambar_mobile" required>
-                        <small style="color:red">*) ukuran minimal 640 x 640 px</small>
+                        <label for="message-text" class="control-label">Gambar</label>
+                        <input type="file" class="form-control" name="lopoFile" required>
+                        <small style="color:red">*) ukuran minimal 1349 x 700 px</small>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -95,7 +94,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="message-text" class="control-label">Gambar Desktop</label>
+                        <label for="message-text" class="control-label">Gambar </label>
                         <input type="file" class="form-control" name="lopoFile">
                         <div class="" id="img-lopo">
                             <img style="height:200px" src="../images/slider/small/<?php echo $data['gambar'] ?>">
@@ -104,11 +103,8 @@
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label for="message-text" class="control-label">Gambar Mobile</label>
-                        <input type="file" class="form-control" name="gambar_mobile">
-                        <div class="" id="img-lopo">
-                            <img style="height:200px" src="../images/slider/small/<?php echo $data['gambar_mobile'] ?>">
-                        </div>
+                        <label for="">Deskripsi</label>
+                        <textarea id="ckeditor3" class="ckeditor2" name="deskripsi"><?php echo $data['deskripsi'] ?></textarea>
                     </div>
                 </div>
                 <input type="submit" id="btn-slider" class="btn btn-primary" value="Simpan Data">

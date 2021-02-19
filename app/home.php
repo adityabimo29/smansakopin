@@ -1,75 +1,69 @@
 <?php $this->layout('template') ?>
-<section class="slider-slick">
+<ul class="slippry-slider">
     <?php foreach($slider as $r) : ?>
-    <div>
-        <picture>
-            <source media="(min-width: 650px)" srcset="images/slider/<?=$r['gambar']?>">
-            <source media="(max-width: 600px)" srcset="images/slider/small/<?=$r['gambar_mobile']?>">
-            <img class="w-100" src="images/slider/<?=$r['gambar']?>">
-        </picture>
-    </div>
-    <?php endforeach ?>
-</section>
-
-<section class="container ">
-    <div class="row">
-        <div class="col-md-12 my-3">
-        <div class="mobile d-sm-none">
-            <!-- SnapWidget -->
-            <?=$snap['iframe_mobile']?>
+    <li>
+        <div class="text-content d-none d-md-block">
+            <h2 class="text-white"><?=$r['judul']?></h2>
+            <div class="putih"><?=$r['deskripsi']?></div>
+            <!-- <a href="#!" class="button-link read-more">read more</a> -->
         </div>
-        <div class="desktop d-none d-md-block">
-            <!-- SnapWidget -->
-            <?=$snap['iframe_desktop']?>
+        <div class="image-content">
+            <picture>
+                <source media="(min-width: 650px)" srcset="images/slider/<?=$r['gambar']?>">
+                <source media="(max-width: 649px)" srcset="images/slider/small/<?=$r['gambar']?>">
+                <img class="w-100" src="images/slider/<?=$r['gambar']?>">
+            </picture>
         </div>
-        </div>
-    </div>
-</section>
-
-<section class="container">
-    <div class="row ">
-        <?php foreach($banner as $r) : ?>
-        <div class="col-md-6 mb-4">
-            <a href="<?=$r['url']?>">
-                <picture>
-                    <source media="(min-width: 650px)" srcset="images/banner/<?=$r['gambar']?>">
-                    <source media="(max-width: 600px)" srcset="images/banner/small/<?=$r['gambar']?>">
-                    <img class="w-100" src="images/banner/<?=$r['gambar']?>">
-                </picture>
-            </a>
-        </div>
-        <?php endforeach ?>
-    </div>
-</section>
-
-<section class="container">
-    <div class="row">
-        <?php foreach($produk as $r) : ?>
-        <div class="col-md-3 col-sm-4 col-6" style="margin-bottom:5px;padding: 5px;">
-            <div class="service-widget border">
-                <div class="post-media wow fadeIn ww">
-                    <a href="label-baju-<?=$r['seo']."-".$r['id_produk']?>">
-                        <picture>
-                            <source media="(max-width: 600px)" srcset="images/produk/small/<?=$r['gambar']?>">
-                            <source media="(min-width: 768px)" srcset="images/produk/<?=$r['gambar']?>">
-                            <img src="images/produk/<?=$r['gambar']?>" alt="" class="img-responsive grow wiu"
-                                style="height: auto; overflow: hidden;">
-                        </picture>
-                    </a>
-                </div>
-                <div class="product-card-text">
-                    <a href="label-baju-<?=$r['seo']."-".$r['id_produk']?>">
-                        <p class="product-card-name font-weight-bold" title="<?=$r['judulku']?>"><?=$r['judulku']?></p>
-                    </a>
-                    <p class="product-card-shop">Rp. <?=$r['harga']?></p>
-                </div>
-                <div class="product-card-text">
-                    <a href="label-baju-<?=$r['seo']."-".$r['id_produk']?>" class="btn btn-secondary btn-md btn-block"
-                        item-id="52161">Detail</a>
-
-                </div>
+        <section class="">
+            <div class="bx-prakata d-none d-md-block">
+                <div><?=$prakata?></div>
             </div>
+        </section>
+    </li>
+    <?php endforeach ?>
+</ul>
+
+<section class="container mt-5">
+    <div class="row ">
+        <div class="col-md-6">
+            <?=$welcome['deskripsi']?>
         </div>
-        <?php endforeach ?>
+        <div class="col-md-6">
+            <img src="images/<?=$welcome['gambar']?>" class="w-100" alt="">
+        </div>
+    </div>
+</section>
+<section class="bg-abu">
+    <div class="container">
+        <div class="row album-photos">
+            <?php foreach($foto as $r) : ?>
+            <div class="col-md-3 mb-4">
+                <figure class="item-album">
+                    <div class="thumb-icon">
+                        <i class="fa fa-picture-o"></i>
+                    </div>
+                    <figcaption class="album-content">
+                        <span class="title-album"><?=$r['judul']?></span>
+                        <span class="amount-album"><?=$r['jml']?> Photos</span>
+                        <a href="foto-<?=$r['judul_seo']."-".$r['id_foto']?>" class="btn btn-danger">Selengkapnya</a>
+                    </figcaption>
+                    <figure class="thumbnail-img"
+                        style="background-image: url('images/foto/small/<?=$r['gambar']?>'); background-size: cover; background-position: center center;">
+                        <picture>
+                            <source media="(min-width: 651px)" srcset="images/foto/<?=$r['gambar']?>">
+                            <source media="(max-width: 650px)" srcset="images/foto/small/<?=$r['gambar']?>">
+                            <img class="w-100" src="images/foto/<?=$r['gambar']?>" style="display: none;">
+                        </picture>
+                    </figure>
+                </figure>
+            </div>
+            <?php endforeach ?>
+        </div>
+    </div>
+</section>
+
+<section class="raichu" style="position: relative;left: -89.5px;box-sizing: border-box;width: 1349px;padding-left: 89.5px;padding-right: 89.5px;background-image:url('images/<?=$video['gambar']?>')" >
+    <div >
+        <a class="btn btn-danger">Play</a>
     </div>
 </section>

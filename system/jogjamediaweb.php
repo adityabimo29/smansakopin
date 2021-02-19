@@ -50,13 +50,11 @@ $login->loadExtension(new League\Plates\Extension\Asset(__DIR__.'/assets/', true
 // Module Setting
 $sosmed = $db->connection("SELECT * FROM social_media")->fetchAll();
 
-// Menu Produk
-$menu = $db->connection("SELECT k.id_produk_kategori, k.judul, k.judul_seo, COUNT(p.id_produk) AS jml FROM produk_kategori k JOIN produk p ON p.id_produk_kategori = k.id_produk_kategori GROUP BY k.id_produk_kategori ORDER BY k.id_produk_kategori DESC ")->fetchAll();
 
 $templates->addData(['namaweb' => $namaweb,'deskrip' => $deskrip,'imgname1' => $imgname1]);
 $jmw->addData(['namaweb' => $namaweb,'deskrip' => $deskrip,'imgname1' => $imgname1]);
 $login->addData(['namaweb' => $namaweb,'deskrip' => $deskrip,'imgname1' => $imgname1]);
-$templates->addData(['db' => $db, 'seo' => '', 'base_url' => $base_url, 'csrf' => $csrf,'sosmed' => $sosmed, 'menu' => $menu,'deskrip' => $deskrip]);
+$templates->addData(['db' => $db, 'seo' => '', 'base_url' => $base_url, 'csrf' => $csrf,'sosmed' => $sosmed,'deskrip' => $deskrip]);
 
 $theme = $db->connection("SELECT * FROM theme")->fetchAll();
 $jmw->addData(['tehe' => $theme, 'seo' => '']);

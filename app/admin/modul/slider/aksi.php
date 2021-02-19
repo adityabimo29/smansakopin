@@ -15,14 +15,6 @@ if ($act == 'update') {
     $nama_file_unik = $seojdul . "-" . $acak . "." . $tipe_file2;
     $nama_seo = seo($_POST["nama"]);
 
-    if(!empty($lokasi_file) && !empty($lokasi_file2)){
-
-    }elseif(!empty($lokasi_file) && empty($lokasi_file2)){
-
-    }elseif(empty($lokasi_file) && !empty($lokasi_file2)){
-        
-    }
-
     if (!empty($lokasi_file)) {
         if (($ukuran == 0) or ($ukuran == 02) or ($ukuran > 2060817)) {
             echo "<script>window.alert('Gagal Upload Gambar, ukuran gambar lebih dari 2 MB !'); window.location(history.back(-1))</script>";
@@ -40,7 +32,7 @@ if ($act == 'update') {
                     $datas = array(
                         'judul' => $_POST["nama"],
                         'gambar' => $nama_file_unik,
-                        'url' => $_POST["url"],
+                        'deskripsi' => $_POST["deskripsi"],
                     );
                     $db->update("slider", $datas, "id_slider= '$_POST[id_slider]' ");
 
@@ -50,11 +42,11 @@ if ($act == 'update') {
                     lopoCompress('slider/small', $pathToImage, $tipe_file2, 6);
 
                     $image = new ImageResize($pathSmall);
-                    $image->resize(509, 340);
+                    $image->resize(675, 350);
                     $image->save($pathSmall);
 
                     $image2 = new ImageResize($pathToImage);
-                    $image->resize(509, 340);
+                    $image2->resize(1349, 700);
                     $image2->save($pathToImage);
 
                     echo "<script>alert('slider Berhasil diedit'); window.location = '$hal-edit-$_POST[id_slider]'</script>";
@@ -74,7 +66,7 @@ if ($act == 'update') {
 
             $datas = array(
                 'judul' => $_POST["nama"],
-                'url' => $_POST["url"],
+                'deskripsi' => $_POST["deskripsi"],
             );
             $db->update("slider", $datas, "id_slider= '$_POST[id_slider]' ");
 
@@ -95,9 +87,7 @@ elseif ($act == 'add') {
     $tipe_file2 = seo2($tipe_file);
     $seojdul = seo($_POST["nama"]);
     $acak = rand(00, 99);
-    $tipe = seo2($_FILES['gambar_mobile']['type']);
     $nama_file_unik = $seojdul . "-" . $acak . "." . $tipe_file2;
-    $nama_file_unik2 = $seojdul  . "." . $tipe;
     $nama_seo = seo($_POST["nama"]);
     date_default_timezone_set('Asia/Jakarta');
 
@@ -110,14 +100,13 @@ elseif ($act == 'add') {
             echo "<script>window.alert('Gagal Upload Gambar, ukuran gambar lebih dari 2 MB !'); window.location(history.back(-1))</script>";
         } else {
             $res = lopoUpload($seojdul . '-' . $acak, 'slider');
-            $res2 = uploadGambar($seojdul, 'slider', "gambar_mobile");
-            if ($res == true &&  $res2 == true) {
+            if ($res == true) {
                 try {
 
                     $datas = array(
                         'judul' => $_POST["nama"],
                         'gambar' => $nama_file_unik,
-                        'gambar_mobile' => $nama_file_unik2,
+                        'deskripsi' => $_POST["deskripsi"],
                     );
                     $saved = $db->insert('slider', $datas);
                     $insertId = $db->lastId();
@@ -128,26 +117,12 @@ elseif ($act == 'add') {
                     lopoCompress('slider/small', $pathToImage, $tipe_file2, 1);
 
                     $image = new ImageResize($pathSmall);
-                    $image->resize(1349, 421);
+                    $image->resize(675, 350);
                     $image->save($pathSmall);
 
                     $image2 = new ImageResize($pathToImage);
-                    $image->resize(1349, 421);
+                    $image2->resize(1349, 700);
                     $image2->save($pathToImage);
-
-                    $pathToImage = 'images/slider/' . $nama_file_unik2;
-                    $pathSmall = 'images/slider/small/' . $nama_file_unik2;
-                    lopoCompress('slider', $pathToImage, $tipe, 1);
-                    lopoCompress('slider/small', $pathToImage, $tipe, 1);
-
-                    $image = new ImageResize($pathSmall);
-                    $image->resize(640, 640);
-                    $image->save($pathSmall);
-
-                    $image2 = new ImageResize($pathToImage);
-                    $image->resize(640, 640);
-                    $image2->save($pathToImage);
-
 
                     echo "<script>alert('slider Berhasil ditambah'); window.location = '$hal-edit-$insertId'</script>";
 

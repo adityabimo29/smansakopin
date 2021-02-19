@@ -1,14 +1,11 @@
-@font-face {
-    font-family: "neue-haas-grotesk-display";
-    src: url("../fonts/NHaasGroteskTXPro-55Rg.ttf") format('truetype');
-}
-
-body{
-    font-family:'neue-haas-grotesk-display',sans-serif;
+:root{
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
 }
 
 #tophead {
-    background-color: #002147;
+    background-color: #ff0000;
+    height: 40px;
 }
 #tophead .tophead-contact {
     float: left;
@@ -22,10 +19,10 @@ body{
     padding: 0;
 }
 #tophead .tophead-contact .fa, #tophead .tophead-address .fa {
-    color: #fdc800;
+    color: #fff;
 }
 #tophead, #tophead a, #tophead .tophead-social li a, #tophead .tophead-social li a:hover {
-    color: #d0d6dd;
+    color: #fff;
 }
 #tophead .tophead-contact ul li {
     display: inline-block;
@@ -35,7 +32,234 @@ body{
     display: inline-block;
 }
 #tophead, #tophead a, #tophead .tophead-social li a, #tophead .tophead-social li a:hover {
-    color: #d0d6dd;
+    color: #fff;
 }
 .bg-hitam{background-color: black;}
-.piki{top:40px}
+.piki{
+    top:40px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: position 10s;
+    -ms-transition: position 10s;
+    -o-transition: position 10s;
+    transition: all 0.2s ease;
+}
+@keyframes smoothScroll {
+	0% {
+		transform: translateY(-40px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+.sy-box.sy-loading{background:url('https://cdnjs.cloudflare.com/ajax/libs/slippry/1.4.0/images/sy-loader.gif') 50% 50% no-repeat;}
+.sy-controls li a:after{background-image:url('https://cdnjs.cloudflare.com/ajax/libs/slippry/1.4.0/images/arrows.svg');}
+/*
+.slippry-slider .text-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1em;
+    width: 30%;
+    height: 100%;
+  }
+  */
+.slippry-slider .text-content {
+    position: absolute;
+    top: 33%;
+    /* bottom: 50%; */
+    left: 6%;
+    right: 0;
+    /* background-color: rgba(255, 255, 255, 0.9); */
+    padding: 1em;
+    width: 50%;
+    /* height: 100%; */
+}
+  .slippry-slider .text-content h2 {
+    margin: 0;
+  }
+  .slippry-slider .text-content p {
+    margin: 1em 0;
+  }
+  .slippry-slider .text-content a.button-link {
+    padding: 0.25em 0.5em;
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+  }
+  .slippry-slider .image-content {
+    line-height: 0;
+  }
+  .slippry-slider .image-content img {
+    max-width: 100%;
+  }
+  .slippry-slider .news-pager {
+    text-align: right;
+    display: block;
+    margin: 0.2em 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .slippry-slider .news-pager li {
+    display: inline-block;
+    padding: 0.6em;
+    margin: 0 0 0 1em;
+  }
+  .slippry-slider .news-pager li.sy-active a {
+    color: #31ace2;
+  }
+  .slippry-slider .news-pager li a {
+    font-weight: 500;
+    text-decoration: none;
+    display: block;
+    color: #222;
+  }
+  .putih p, .putih span{color:white}
+
+  .logo-top{
+    width: 50px;
+  }
+
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+    color: #000;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: rgb(0 0 0);
+}
+
+.bg-putih{background-color: #fff;}
+.bx-prakata{
+    width: 84%;
+    background-color: #ff00007d;
+    position: absolute;
+    z-index: 123;
+    left: 8%;
+    bottom: 0;
+    margin: 0 auto;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.troop div{
+  padding: 0 10px;
+}
+
+.album-photos .item-album:before {
+  display: block;
+  content: "";
+  position: absolute;
+  background-color: #ff0000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: -webkit-transform .3s cubic-bezier(.4, 0, .2, 1), opacity 0.6s;
+  -moz-transition: -moz-transform .3s cubic-bezier(.4, 0, .2, 1), opacity 0.6s;
+  transition: transform .3s cubic-bezier(.4, 0, .2, 1), opacity 0.6s;
+  z-index: 0;
+}
+.album-photos .item-album .thumb-icon {
+  background-color: rgba(44, 54, 69, 0.80);
+  color: #fff;
+  font-size: 1.4em;
+  line-height: 50px;
+  position: absolute;
+  left: 0;
+  text-align: center;
+  top: 0;
+  transition: 0.2s;
+  width: 60px;
+  z-index: 1;
+  opacity: 1;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: -webkit-transform .3s cubic-bezier(.4, 0, .2, 1)s, opacity 0.6s;
+  -moz-transition: -moz-transform .3s cubic-bezier(.4, 0, .2, 1), opacity 0.6s;
+  transition: transform .3s cubic-bezier(.4, 0, .2, 1), opacity 0.6s;
+}
+.album-photos .item-album .album-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 30px;
+  background: rgba(46, 52, 68, 0.95);
+  color: #ffffff;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  text-align: center;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: -webkit-transform .3s cubic-bezier(.4, 0, .2, 1), opacity 0.6s;
+  -moz-transition: -moz-transform .3s cubic-bezier(.4, 0, .2, 1), opacity 0.6s;
+  transition: transform .3s cubic-bezier(.4, 0, .2, 1), opacity 0.6s;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.album-photos .item-album .album-content .title-album {
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+}
+.album-photos .item-album .album-content .amount-album {
+  font-size: 14px;
+  opacity: 0.75;
+  margin-bottom: 20px;
+}
+.thumbnail-img {
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transition: filter 0.3s;
+  -webkit-transition: filter 0.3s;
+  -o-transition: filter 0.3s;
+}
+.album-photos .item-album:after {
+  display: block;
+  content: "";
+  padding-top: 100%;
+}
+.album-photos .item-album:hover .album-content {
+  opacity: 1;
+}
+
+@media screen and (min-width: 1199.98px){
+  .album-photos .item-album:hover .album-content {
+      opacity: 1;
+      -webkit-transform: translate(15px, 15px);
+      -moz-transform: translate(15px, 15px);
+      -ms-transform: translate(15px, 15px);
+      transform: translate(15px, 15px);
+  }
+
+  .album-photos .item-album:hover:before {
+    opacity: 1;
+    -webkit-transform: translate(-15px, -15px);
+    -moz-transform: translate(-15px, -15px);
+    -ms-transform: translate(-15px, -15px);
+    transform: translate(-15px, -15px);
+  }
+}
+.album-photos .item-album {
+  position: relative;
+  margin: 15px 0;
+}
+
+.bg-abu{
+  background-color: #f5f5f5;
+}
+
+.raichu{min-height:500px}

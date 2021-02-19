@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 
 $application_folder = 'app';
 $system_path = 'system';
@@ -36,15 +36,17 @@ $router->get('/', function () use ($templates,$db) {
     // SEO
     $templates->addData(['seo' => 'home']);
     
-    $slider  = $db->connection('SELECT * FROM slider  ORDER BY id_slider DESC')->fetchAll();
+    $slider  = $db->connection('SELECT * FROM slider  ORDER BY id_slider DESC ')->fetchAll();
 
-    $snap  = $db->connection('SELECT * FROM snapwidget  WHERE id = 1 ')->fetch();
+    $prakata  = $db->connection('SELECT deskripsi FROM page  WHERE id_page = 13 ')->fetchColumn();
 
-    $banner  = $db->connection('SELECT * FROM banner  ORDER BY id_banner ASC')->fetchAll();
+    $video  = $db->connection('SELECT * FROM page  WHERE id_page = 14 ')->fetch();
 
-    $produk  = $db->connection('SELECT *,p.judul_seo AS  seo,p.judul AS judulku, k.judul AS jdl, k.judul_seo AS jdl_seo FROM produk p JOIN produk_kategori k ON p.id_produk_kategori = k.id_produk_kategori  ORDER BY p.tgl DESC')->fetchAll();
-    
-    echo $templates->render('home', ['slider' => $slider, 'banner' => $banner, 'produk' => $produk, 'snap' => $snap ]);
+    $welcome  = $db->connection('SELECT * FROM page  WHERE id_page = 3 ')->fetch();
+
+    $foto  = $db->connection('SELECT *, f.gambar AS gambar ,f.judul AS judul, COUNT(g.id_gallery) + 1 AS jml FROM foto f JOIN gallery_foto g ON g.id_foto = f.id_foto GROUP BY f.id_foto  ORDER BY f.tgl DESC')->fetchAll();
+
+    echo $templates->render('home', ['slider' => $slider, 'foto' => $foto, 'prakata' => $prakata, 'welcome' => $welcome, 'video' => $video ]);
 
 });
 
