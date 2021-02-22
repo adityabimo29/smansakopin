@@ -1,5 +1,5 @@
 <?php
-
+use \Gumlet\ImageResize;
     if ( $act == 'update' ) {
 
         if ( ( $_POST['jenis_modul'] == 'Images' )OR( $_POST['jenis_modul'] == 'Text Images' )OR( $_POST['jenis_modul'] == 'Textarea Images' ) ) {
@@ -18,6 +18,13 @@
             } else {
                 UploadModul( $nama_file_unik );
                 $gambar = $nama_file_unik;
+
+                $pathSmall   =  'images/'.$nama_file_unik;
+                
+                $image = new ImageResize($pathSmall);
+                $image->resize(1349, 700);
+                $image->save($pathSmall);
+
             }
         }
 
