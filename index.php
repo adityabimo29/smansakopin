@@ -69,7 +69,7 @@ $router->get('/404', function () use ($templates,$db) {
 $router->get('/kontak', function () use ($templates,$db) {
 
     /** SEO */
-    $templates->addData(['seo' => 'kontak']);
+    $templates->addData(['seo' => 'detpage','id' => 8]);
 
     $data        = $db->read('page','*', 'id_page = 8')->fetch(PDO::FETCH_ASSOC);
     echo $templates->render('page', ['data' => $data,]);
@@ -130,7 +130,7 @@ $router->get('/prestasi', function () use ($templates,$db) {
 $router->get('/foto', function () use ($templates,$db) {
 
     /** SEO */
-    $templates->addData(['seo' => 'foto']);
+    $templates->addData(['seo' => 'detpage','id' => 4]);
 
     /** Paging foto */
     $page   	    = new pagingAll;
@@ -158,7 +158,7 @@ $router->get('/foto', function () use ($templates,$db) {
 $router->get('/foto-page-(\d+)', function ($id) use ($templates,$db) {
 
     /** SEO */
-    $templates->addData(['seo' => 'foto']);
+    $templates->addData(['seo' => 'detpage','id' => 4]);
 
     /** Paging foto */
     $page   	    = new pagingAll;
@@ -198,7 +198,7 @@ $router->get('/foto-(.*)-(\d+)', function ($slug,$id) use ($templates,$db) {
 $router->get('/berita', function () use ($templates,$db) {
 
     /** SEO */
-    $templates->addData(['berita' => 'foto']);
+    $templates->addData(['seo' => 'detpage','id' => 9]);
 
     /** Paging foto */
     $page   	    = new pagingAll;
@@ -226,7 +226,7 @@ $router->get('/berita', function () use ($templates,$db) {
 $router->get('/berita-page-(\d+)', function ($id) use ($templates,$db) {
 
     /** SEO */
-    $templates->addData(['berita' => 'foto']);
+    $templates->addData(['seo' => 'detpage','id' => 9]);
 
     /** Paging foto */
     $page   	    = new pagingAll;
@@ -254,7 +254,7 @@ $router->get('/berita-page-(\d+)', function ($id) use ($templates,$db) {
 $router->get('/video', function () use ($templates,$db) {
 
     /** SEO */
-    $templates->addData(['seo' => 'video']);
+    $templates->addData(['seo' => 'detpage','id' => 12]);
 
     /** Paging foto */
     $page   	    = new pagingAll;
@@ -273,7 +273,7 @@ $router->get('/video', function () use ($templates,$db) {
 
     $video  = $db->connection("SELECT * FROM banner ORDER BY id_banner DESC LIMIT $posisi,$batas ")->fetchAll();
 
-    $data  = $db->connection("SELECT * FROM page  WHERE id_page = 4 ")->fetch(PDO::FETCH_ASSOC);
+    $data  = $db->connection("SELECT * FROM page  WHERE id_page = 12 ")->fetch(PDO::FETCH_ASSOC);
 
     echo $templates->render('video',['video' => $video , 'data' => $data,'pagination' => $pagination]);
 });

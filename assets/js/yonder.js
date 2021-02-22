@@ -79,28 +79,5 @@ $(document).ready(function() {
 
 	}
 
-    //LIGHT GALLERY
-    $('.intro-btn').lightGallery({
-        selector: '.video-source',
-        autoplay: true,
-        videoMaxWidth: '80%',
-        youtubePlayerParams: {
-            modestbranding: 1,
-            showinfo: 0,
-            rel: 0,
-            controls: 1
-        }
-    });
-
-    $('.list-videos').lightGallery({
-        selector: '.play-button',
-        youtubeThumbSize: 'maxresdefault',
-        youtubePlayerParams: {
-            modestbranding: 1,
-            showinfo: 0,
-            rel: 0,
-            controls: 1
-        }
-    });
      
 });

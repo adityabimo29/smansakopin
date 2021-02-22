@@ -175,11 +175,25 @@
                             </ul>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="video"
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                 aria-expanded="false">
                                 <i class="sl-icon-control-play"></i>
-                                <span class="hide-menu">Galeri Video</span>
+                                <span class="hide-menu">Galeri Video </span>
                             </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a href="video" class="sidebar-link">
+                                        <i class="sl-icon-arrow-right"></i>
+                                        <span class="hide-menu">Video</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="page-edit-12" class="sidebar-link">
+                                        <i class="sl-icon-arrow-right"></i>
+                                        <span class="hide-menu">SEO Video</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="kontak"

@@ -24,7 +24,7 @@
         </div>
         <div class="row album-photos popup-foto">
             <?php foreach($gallery as $r) : ?>
-            <div class="col-md-3 mb-4">
+            <div class="col-md-3 col-6 mb-4">
                 <div class="ludogorets">
                     <a href="images/gallery_foto/<?=$imgname1."-".$r['gambar']?>">
                         <picture>

@@ -22,7 +22,7 @@
         </div>
         <div class="row list-videos">
             <?php foreach($video as $r) : ?>
-            <div class="col-md-3 mb-4">
+            <div class="col-md-3 col-6 mb-4">
                 <figure class="item-video">
                     <div class="thumb-icon">
                         <i class="fa fa-play"></i>

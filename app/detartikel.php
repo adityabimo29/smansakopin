@@ -29,12 +29,12 @@
             <aside>
                 <?php foreach($artikel as $r) : ?>
                 <div class="row no-gutters">
-                    <div class="col-md-4 ">
+                    <div class="col-md-4 col-4">
                         <a href="berita-<?= $r['judul_seo']."-".$r['id_artikel'] ?>">
                             <img class="w-100" src="images/artikel/<?=$r['gambar']?>" alt="<?=$r['judul_seo']?>">
                         </a>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8 col-8">
                         <div class="px-2">
                             <a class="loi" href="berita-<?= $r['judul_seo']."-".$r['id_artikel'] ?>">
                                 <h6 class="font-weight-bold"><?=$r['judul']?></h6>
@@ -44,7 +44,6 @@
                                 <div class="box-piyik"><i class="fa fa-eye"></i> <?=$r['dilihat']?></div>
                             </div>
                         </div>
-
                     </div>
                     <div class="col-md-12">
                         <hr>

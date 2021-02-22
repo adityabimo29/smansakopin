@@ -75,9 +75,9 @@ elseif($seo=='contact'){
 	$imageshare = "images/event/".$seo['gambar'];
 	$urlshare = $seourl ;
 
-
-}elseif($seo=='detblog'){
-	$tirl = $db->connection("SELECT * FROM artikel WHERE id_artikel='$_GET[id]'");
+	
+}elseif($seo=='detfoto'){
+	$tirl = $db->read('foto', '*', "id_foto = $id_seo ");
 	$ttirl = $tirl->fetch(PDO::FETCH_ASSOC);
 
 	$des = htmlentities(strip_tags(preg_replace("/&#?[a-z0-9]+;/i","",$ttirl["deskripsi"])));
@@ -87,7 +87,20 @@ elseif($seo=='contact'){
 	$keyword = "$ttirl[keyword]";
 	$description = "$ttirl[description]";
 
-	$imageshare = "images/artikel/$imgname2-$ttirl[gambar]";
+	$imageshare = "images/foto/$ttirl[gambar]";
+	$urlshare = $seourl ;
+}elseif($seo=='detartikel'){
+	$tirl = $db->connection("SELECT * FROM artikel WHERE id_artikel= $id_seo ");
+	$ttirl = $tirl->fetch(PDO::FETCH_ASSOC);
+
+	$des = htmlentities(strip_tags(preg_replace("/&#?[a-z0-9]+;/i","",$ttirl["deskripsi"])));
+	$des2 = substr($des,0,strrpos(substr($des,0,177)," "));
+
+	$judul= "$ttirl[judul] | $default";
+	$keyword = "$ttirl[keyword]";
+	$description = "$ttirl[description]";
+
+	$imageshare = "images/artikel/$ttirl[gambar]";
 	$urlshare = $seourl ;
 }elseif($seo=='detpage'){
 	$tirl = $db->connection("SELECT * FROM page WHERE id_page= $id ");
@@ -119,13 +132,10 @@ elseif($seo=='contact'){
     <meta name="keywords" content="<?php echo $keyword; ?>">
     <meta name="description" content="<?php echo $description; ?>">
     
-
-
     <meta name="googlebot" content="index,follow">
     <meta name="googlebot-news" content="index,follow">
     <meta name="robots" content="index,follow">
     <meta name="Slurp" content="all">
-
     <meta property="fb:app_id" content="501046580289991">
     <meta property="og:title" content="<?php echo $judul; ?>">
     <meta property="og:type" content="article">
