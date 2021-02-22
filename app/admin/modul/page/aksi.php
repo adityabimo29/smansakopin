@@ -27,9 +27,9 @@
 
 				$updated = $db->update("page", $datas, "id_page = $_POST[id_page] ");
 				
-				echo "<script>alert('$hal berhasil di Update'); window.location = '$hal'</script>";
+				echo "<script>alert('$hal berhasil di Update'); window.location = 'page-edit-$_POST[id_page]'</script>";
 			}catch(PDOException $e){
-				echo "<script>alert('$hal gagal di Update'); window.location = '$hal'</script>";
+				echo "<script>alert('$hal gagal di Update'); window.location = 'page-edit-$_POST[id_page]'</script>";
 			}
 		}else{
 			if( ($ukuran==0) OR ($ukuran>9060817) ){
@@ -68,9 +68,9 @@
 					$updated = $db->update("page", $datas, "id_page = $_POST[id_page] ");
 					
 					
-					echo "<script>alert('$hal berhasil di Update'); window.location = '$hal'</script>";
+					echo "<script>alert('$hal berhasil di Update'); window.location = 'page-edit-$_POST[id_page]'</script>";
 				}catch(PDOException $e){
-					echo "<script>alert('$hal gagal di Update'); window.location = '$hal'</script>";
+					echo "<script>alert('$hal gagal di Update'); window.location = 'page-edit-$_POST[id_page] '</script>";
 				}
 			}
 		}

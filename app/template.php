@@ -9,7 +9,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <link rel="manifest" href="images/site.webmanifest">
+    <!-- <link rel="manifest" href="images/site.webmanifest"> -->
     <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#2b5797">
     <meta name="theme-color" content="#ffffff">
@@ -31,17 +31,61 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/magnific-popup.min.css"
         integrity="sha512-nIm/JGUwrzblLex/meoxJSPdAKQOe2bLhnrZ81g5Jbh519z8GFJIWu87WAhBH+RAyGbM4+U3S2h+kL5JoV6/wA=="
         crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.min.css"
+        integrity="sha512-C8Movfk6DU/H5PzarG0+Dv9MA9IZzvmQpO/3cIlGIflmtY3vIud07myMu4M/NTPJl8jmZtt/4mC9bAioMZBBdA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/meanmenu/meanmenu.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"
+        integrity="sha512-gk6oCFFexhboh5r/6fov3zqTCA2plJ+uIoUx941tQSFg6TNYahuvh1esZVV0kkK+i5Kl74jPmNJTTaHAovWIhw=="
+        crossorigin="anonymous" />
 
     <!-- Main Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css?v<?=date('i:s')?>" />
+    <link rel="stylesheet" href="assets/css/footer.css?v<?=date('i:s')?>" />
 
 </head>
 
 <body class="hebo">
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
     </div>
+
+    <header class="d-lg-none">
+        <nav>
+            <a href="<?=$base_url?>" alt="SMA Muhammadiyah 5 Yogyakarta"><img class="logo-small img-mean"
+                    src="images/<?=$deskrip[1]?>"></a>
+            <ul>
+                <li><a href="<?=$base_url?>">Home</a></li>
+                <li><a href="#">Profile</a>
+                    <ul>
+                        <li><a href="profile-sekolah">Profile Sekolah</a></li>
+                        <li><a href="guru-staf">Guru & Staf</a></li>
+                        <li><a href="visi-misi">Visi Misi</a></li>
+                        <li><a href="sarana-prasarana">Sarana Prasarana</a></li>
+                        <li><a href="prestasi">Prestasi</a></li>
+                    </ul>
+                </li>
+                <li><a href="berita">Berita / Info Sekolah</a></li>
+                <li><a href="#">Galeri</a>
+                    <ul>
+                        <li><a href="foto">Foto</a></li>
+                        <li><a href="video">Video</a></li>
+                    </ul>
+                </li>
+                <li><a href="kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Header section  -->
     <div class="d-none d-md-block">
@@ -62,17 +106,14 @@
                     </div>
                     <div class="tophead-right">
                         <div class="tophead-social d-flex justify-content-around troop">
-                            <div><a target="_blank" href="https://www.facebook.com/smamuh5yk"><i
-                                        class="fa fa-facebook"></i></a></div>
-                            <div><a target="_blank" href="https://twitter.com/smamuh5yk"><i
-                                        class="fa fa-twitter"></i></a></div>
-                            <div><a target="_blank" href="#"><i class="fa fa-google-plus"></i></a></div>
-                            <div><a target="_blank" href="http://www.youtube.com/c/smamuh5yk"><i
-                                        class="fa fa-youtube"></i></a></div>
-                            <div><a target="_blank" href="https://www.instagram.com/smamuh5yk"><i
-                                        class="fa fa-instagram"></i></a>
+                            <div><a target="_blank" href="<?=$sosmed[0]['link']?>"><i class="fa fa-facebook"></i></a>
                             </div>
-                            <div><a target="_blank" href="#"><i class="fa fa-rss"></i></a></div>
+                            <div><a target="_blank" href="<?=$sosmed[1]['link']?>"><i class="fa fa-twitter"></i></a>
+                            </div>
+                            <div><a target="_blank" href="<?=$sosmed[2]['link']?>"><i class="fa fa-youtube"></i></a>
+                            </div>
+                            <div><a target="_blank" href="<?=$sosmed[3]['link']?>"><i class="fa fa-instagram"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -115,7 +156,7 @@
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="artikel">BERITA / INFO SEKOLAH</a>
+                                    <a class="nav-link" href="berita">BERITA / INFO SEKOLAH</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -139,11 +180,82 @@
     </div>
     <div class="clearfix"></div>
     <!-- Header section end  -->
-
-    <?= $this->section('content')?>
-
+    <div class="krasnodar">
+        <?= $this->section('content')?>
+    </div>
 
     <!-- Footer section   -->
+    <footer class="ftco-footer ftco-bg-dark ftco-section img"
+        style="background-image: url(images/bg_2.jpg); background-attachment:fixed;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-3">
+                    <div class="ftco-footer-widget mb-4">
+                        <a class="" href="<?=$base_url?>"><img style="width:200px" src="images/<?=$deskrip[1]?>"
+                                class="" alt=""></a>
+                        <div class="mt-2"><?=$deskrip[18]?></div>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate fadeInUp ftco-animated"><a href="#"><span
+                                        class="fa fa-twitter"></span></a></li>
+                            <li class="ftco-animate fadeInUp ftco-animated"><a href="#"><span
+                                        class="fa fa-facebook"></span></a></li>
+                            <li class="ftco-animate fadeInUp ftco-animated"><a href="#"><span
+                                        class="fa fa-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="">Info Sekolah</h2>
+                        <?php foreach($ftBerita as $r) : ?>
+                        <div class="block-21 mb-4 d-flex">
+                            <a href="berita-<?=$r['judul_seo']."-".$r['id_artikel']?>" class="blog-img mr-4"
+                                style="background-image: url(images/artikel/small/<?=$r['gambar']?>);"></a>
+                            <div class="text">
+                                <h3 class="heading"><a
+                                        href="berita-<?=$r['judul_seo']."-".$r['id_artikel']?>"><?=$r['judul']?></a>
+                                </h3>
+                                <div class="meta">
+                                    <div><a href="#"><span class="fa fa-calendar"></span> <?=tgl2($r['tgl'])?></a></div>
+                                    <div><a href="#"><span class="fa fa-eye"></span> <?=$r['dilihat']?></a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endforeach ?>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <h2 class="ftco-heading-2">Site Links</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="<?=$base_url?>" class="py-2 d-block">Home</a></li>
+                            <li><a href="profile-sekolah" class="py-2 d-block">Profil Sekolah</a></li>
+                            <li><a href="visi-misi" class="py-2 d-block">Visi Misi</a></li>
+                            <li><a href="foto" class="py-2 d-block">Foto</a></li>
+                            <li><a href="video" class="py-2 d-block">Video</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Lokasi</h2>
+                        <div class="block-23 mb-3">
+                            <?=$deskrip[81]?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>
+                        Copyright © 2021 All rights reserved | Developed <i class="icon-heart" aria-hidden="true"></i>
+                        by <a href="https://www.jogjamediaweb.com" target="_blank">JMW</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Footer section end  -->
 
@@ -167,10 +279,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"
         integrity="sha512-+m6t3R87+6LdtYiCzRhC5+E0l4VQ9qIT1H9+t1wmHkMJvvUQNI5MKKb7b08WL4Kgp9K0IBgHDSLCRJk05cFUYg=="
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous"></script>
+    <script src="assets/meanmenu/jquery.meanmenu.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js"
+        integrity="sha512-gDBgGPXSeC2hx1W3S1CfSHbAValtLI8OArTGf0UVX7Fwb9Ak7HUE3LK9UEZxKGYVrIe0CJUVZDk9B2dIPwJ6VQ=="
+        crossorigin="anonymous"></script>
 
     <script src="assets/js/yonder.js?<?=date('i:s')?>"></script>
 
-
+    <script>
+    jQuery(document).ready(function() {
+        jQuery('header nav').meanmenu();
+    });
+    </script>
 </body>
 
 </html>

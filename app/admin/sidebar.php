@@ -100,31 +100,31 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item">
-                                    <a href="kategori-produk" class="sidebar-link">
+                                    <a href="page-edit-11" class="sidebar-link">
                                         <i class="sl-icon-arrow-right"></i>
                                         <span class="hide-menu">Profil Sekolah</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="produk" class="sidebar-link">
+                                    <a href="page-edit-17" class="sidebar-link">
                                         <i class="sl-icon-arrow-right"></i>
                                         <span class="hide-menu">Guru & Staf</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="produk" class="sidebar-link">
+                                    <a href="page-edit-10" class="sidebar-link">
                                         <i class="sl-icon-arrow-right"></i>
                                         <span class="hide-menu">Visi Misi</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="produk" class="sidebar-link">
+                                    <a href="page-edit-15" class="sidebar-link">
                                         <i class="sl-icon-arrow-right"></i>
                                         <span class="hide-menu">Sarana Prasarana</span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="produk" class="sidebar-link">
+                                    <a href="page-edit-16" class="sidebar-link">
                                         <i class="sl-icon-arrow-right"></i>
                                         <span class="hide-menu">Prestasi</span>
                                     </a>
@@ -133,18 +133,46 @@
                             </ul>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="artikel"
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                 aria-expanded="false">
                                 <i class="sl-icon-notebook"></i>
-                                <span class="hide-menu">Berita</span>
+                                <span class="hide-menu">Berita </span>
                             </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a href="artikel" class="sidebar-link">
+                                        <i class="sl-icon-arrow-right"></i>
+                                        <span class="hide-menu">Berita</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="page-edit-9" class="sidebar-link">
+                                        <i class="sl-icon-arrow-right"></i>
+                                        <span class="hide-menu">SEO Berita</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="foto"
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                 aria-expanded="false">
                                 <i class="sl-icon-picture"></i>
-                                <span class="hide-menu">Galeri Foto</span>
+                                <span class="hide-menu">Foto </span>
                             </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a href="foto" class="sidebar-link">
+                                        <i class="sl-icon-arrow-right"></i>
+                                        <span class="hide-menu">Foto</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="page-edit-4" class="sidebar-link">
+                                        <i class="sl-icon-arrow-right"></i>
+                                        <span class="hide-menu">SEO Foto</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="video"

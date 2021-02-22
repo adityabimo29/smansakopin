@@ -1,39 +1,68 @@
 <?php $this->layout('template') ?>
-<!-- About section  -->
-<section class="article-section" style="background-color: #F4F4F4;">
+<section class="mainn elytra cta aos-init aos-animate  d-flex align-items-center py-5"
+    style="background: url('images/<?=$data['gambar']?>') no-repeat fixed ;background-size: cover;background-position: center;"
+    data-aos="fade-up">
+    <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 p-0">
-                <div class="py-4 px-4">
-                    <h2 class="font-weight-bold">Artikel</h2>
-                    <hr>
+            <div class="col-md-12 col-xs-12">
+                <div class="gallary-header ">
+                    <h2 class="text-center text-white"><strong class="">Berita / Info Sekolah</strong></h2>
                 </div>
             </div>
-            <?php foreach($data as $r) : ?>
-            <div class="col-md-4 mb-4">
-                <article>
-                    <figure><a href="news-<?=$r['judul_seo']."-".$r['id_artikel']?>"><img
-                                src="images/artikel/small/<?=$r['gambar']?>" alt="website template image"></a>
-                        <!-- <figcaption>
-                            <time datetime="2045-04-05T08:15+00:00"><strong>05</strong> <em>Apr</em></time>
-                        </figcaption> -->
-                    </figure>
-                    <div class="excerpt">
-                        <a style="color:black;text-decoration:none" href="news-<?=$r['judul_seo']."-".$r['id_artikel']?>"><h6 class="heading"><?=$r['judul']?></h6></a>
-                        <ul class="nospace meta d-flex justify-content-between">
-                            <li><i class="fa fa-calendar"></i> <a href="#"><?=tgl2($r['tgl'])?></a>
-                            </li>
-                            <li><i class="fa fa-eye"></i> <a
-                                    href="#"><?=$r['dilihat']?></a></li>
-                        </ul>
-                        <p><?=limit_desc($r['deskripsi'],150)?> [<a
-                                href="news-<?=$r['judul_seo']."-".$r['id_artikel']?>">…</a>]</p>
-                        <footer><a class="btn" href="news-<?=$r['judul_seo']."-".$r['id_artikel']?>">Selengkapnya</a></footer>
-                    </div>
-                </article>
-            </div>
-            <?php endforeach ?>
         </div>
     </div>
 </section>
-<!-- About section end  -->
+<section class="py-5">
+    <div class="container owl-wrap">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="mb-2">Berita / Info Sekolah</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row " >
+            <?php foreach($berita as $r) : ?>
+            <div class="col-md-3">
+                <div class="rt-course-box">
+                    <div class="rtin-thumbnail hvr-bounce-to-right">
+                        <picture>
+                            <source media="(min-width: 651px)" srcset="images/artikel/<?=$r['gambar']?>">
+                            <source media="(max-width: 650px)" srcset="images/artikel/small/<?=$r['gambar']?>">
+                            <img class="w-100 lazyOwl" data-src="images/artikel/<?=$r['gambar']?>">
+                        </picture>
+                        <a href="berita-<?=$r['judul_seo']."-".$r['id_artikel']?>" title="<?=$r['judul']?>"><i
+                                class="fa fa-link" aria-hidden="true"></i></a>
+                        <div class="rtin-price"><span class="rt-lp-price"><ins>Free</ins></span></div>
+                    </div>
+                    <div class="rtin-content-wrap">
+                        <div class="rtin-content">
+                            <h3 class="rtin-title"><a href="berita-<?=$r['judul_seo']."-".$r['id_artikel']?>"
+                                    title="<?=$r['judul']?>"><?=$r['judul']?></a></h3>
+                            <div class="rtin-author"><i class="fa fa-user" aria-hidden="true"></i><a href="#"> Smansa
+                                    Kopin</a></div>
+                            <div class="rtin-description"><?=limit_desc($r['deskripsi'],200)?></div>
+                        </div>
+                        <div class="rtin-meta rtin-count-1">
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-12"><i class="fa fa-eye" aria-hidden="true"></i><span>
+                                        <?=$r['dilihat']?></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <?php endforeach ?>
+        </div>
+        <div class="row">
+            <?php if(  $pagination['jmldata'] > $pagination['batas'] ) : ?>
+            <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:20px">
+                <div class="wp-pagenavi">
+                    <center><?= $pagination['linkHalaman'] ?></center>
+                </div>
+            </div>
+            <?php endif ?>
+        </div>
+    </div>
+</section>

@@ -53,33 +53,51 @@
     </div>
 </section>
 <section class="py-5">
-    <div class="container">
+    <div class="container owl-wrap">
         <div class="row">
             <div class="col-md-12">
-                <h2>Berita / Info Sekolah</h2>
+                <h2 class="mb-2">Berita / Info Sekolah</h2>
+            </div>
+            <div class="col-md-12">
+                <div class="d-flex justify-content-end">
+                    <div class="owl-custom-nav mr-3 mb-4">
+                        <div class="owl-prev"><i class="fa fa-angle-left"></i></div>
+                        <div class="owl-next"><i class="fa fa-angle-right"></i></div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row album-photos">
-            <?php foreach($artikel as $r) : ?>
-            <div class="col-md-3 mb-4">
-                <figure class="item-album">
-                    <div class="thumb-icon">
-                        <i class="fa fa-picture-o"></i>
-                    </div>
-                    <figcaption class="album-content">
-                        <span class="title-album"><?=$r['judul']?></span>
-                        <span class="amount-album"><?=$r['jml']?> Photos</span>
-                        <a href="foto-<?=$r['judul_seo']."-".$r['id_foto']?>" class="btn btn-danger">Selengkapnya</a>
-                    </figcaption>
-                    <figure class="thumbnail-img"
-                        style="background-image: url('images/foto/small/<?=$r['gambar']?>'); background-size: cover; background-position: center center;">
+        <div class="row owl-carousel" id="owl-news">
+            <?php foreach($berita as $r) : ?>
+            <div class="item">
+                <div class="rt-course-box">
+                    <div class="rtin-thumbnail hvr-bounce-to-right">
                         <picture>
-                            <source media="(min-width: 651px)" srcset="images/foto/<?=$r['gambar']?>">
-                            <source media="(max-width: 650px)" srcset="images/foto/small/<?=$r['gambar']?>">
-                            <img class="w-100" src="images/foto/<?=$r['gambar']?>" style="display: none;">
+                            <source media="(min-width: 651px)" srcset="images/artikel/<?=$r['gambar']?>">
+                            <source media="(max-width: 650px)" srcset="images/artikel/small/<?=$r['gambar']?>">
+                            <img class="w-100 lazyOwl" data-src="images/artikel/<?=$r['gambar']?>">
                         </picture>
-                    </figure>
-                </figure>
+                        <a href="berita-<?=$r['judul_seo']."-".$r['id_artikel']?>" title="<?=$r['judul']?>"><i
+                                class="fa fa-link" aria-hidden="true"></i></a>
+                        <div class="rtin-price"><span class="rt-lp-price"><ins>Free</ins></span></div>
+                    </div>
+                    <div class="rtin-content-wrap">
+                        <div class="rtin-content">
+                            <h3 class="rtin-title"><a href="berita-<?=$r['judul_seo']."-".$r['id_artikel']?>"
+                                    title="<?=$r['judul']?>"><?=$r['judul']?></a></h3>
+                            <div class="rtin-author"><i class="fa fa-user" aria-hidden="true"></i><a href="#"> Smansa
+                                    Kopin</a></div>
+                            <div class="rtin-description"><?=limit_desc($r['deskripsi'],200)?></div>
+                        </div>
+                        <div class="rtin-meta rtin-count-1">
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-12"><i class="fa fa-eye" aria-hidden="true"></i><span>
+                                        <?=$r['dilihat']?></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
             </div>
             <?php endforeach ?>
         </div>
@@ -94,7 +112,7 @@
         </div>
         <div class="row album-photos">
             <?php foreach($foto as $r) : ?>
-            <div class="col-md-3 mb-4">
+            <div class="col-md-3 col-6 mb-4">
                 <figure class="item-album">
                     <div class="thumb-icon">
                         <i class="fa fa-picture-o"></i>

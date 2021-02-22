@@ -47,11 +47,11 @@ use \Gumlet\ImageResize;
                         lopoCompress( 'artikel/small', $pathToImage, $tipe_file2, 6 );
                         
                         $image = new ImageResize($pathSmall);
-                        $image->resizeToBestFit(675, 350);
+                        $image->resize(675, 350);
                         $image->save($pathSmall);
 
                         $image2 = new ImageResize($pathToImage);
-                        $image2->resizeToBestFit(1349, 700);
+                        $image2->resize(1349, 700);
                         $image2->save($pathToImage);
 
                         echo "<script>alert('$hal Berhasil diedit'); window.location = '$hal-edit-$_POST[id_artikel]'</script>";
@@ -124,11 +124,11 @@ use \Gumlet\ImageResize;
                 lopoCompress( 'artikel/small', $pathToImage, $tipe_file2, 6 );
                 
                 $image = new ImageResize($pathSmall);
-                $image->resizeToBestFit(675, 350);
+                $image->resize(675, 350);
                 $image->save($pathSmall);
                         
                 $image2 = new ImageResize($pathToImage);
-                $image2->resizeToBestFit(1349, 700);
+                $image2->resize(1349, 700);
                 $image2->save($pathToImage);
 
                 echo "<script>alert('$hal Berhasil ditambah'); window.location = '$hal-edit-$insertId'</script>";

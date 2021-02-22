@@ -90,7 +90,7 @@ elseif($seo=='contact'){
 	$imageshare = "images/artikel/$imgname2-$ttirl[gambar]";
 	$urlshare = $seourl ;
 }elseif($seo=='detpage'){
-	$tirl = $db->connection("SELECT * FROM page WHERE id_page='$_GET[id]'");
+	$tirl = $db->connection("SELECT * FROM page WHERE id_page= $id ");
 	$ttirl = $tirl->fetch(PDO::FETCH_ASSOC);
 
 	$des = htmlentities(strip_tags(preg_replace("/&#?[a-z0-9]+;/i","",$ttirl["deskripsi"])));

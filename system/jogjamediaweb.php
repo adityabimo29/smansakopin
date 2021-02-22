@@ -49,12 +49,12 @@ $login->loadExtension(new League\Plates\Extension\Asset(__DIR__.'/assets/', true
 
 // Module Setting
 $sosmed = $db->connection("SELECT * FROM social_media")->fetchAll();
-
+$ftBerita = $db->connection("SELECT * FROM artikel ORDER BY id_artikel  DESC LIMIT 2")->fetchAll();
 
 $templates->addData(['namaweb' => $namaweb,'deskrip' => $deskrip,'imgname1' => $imgname1]);
 $jmw->addData(['namaweb' => $namaweb,'deskrip' => $deskrip,'imgname1' => $imgname1]);
 $login->addData(['namaweb' => $namaweb,'deskrip' => $deskrip,'imgname1' => $imgname1]);
-$templates->addData(['db' => $db, 'seo' => '', 'base_url' => $base_url, 'csrf' => $csrf,'sosmed' => $sosmed,'deskrip' => $deskrip]);
+$templates->addData(['db' => $db, 'seo' => '', 'base_url' => $base_url, 'csrf' => $csrf,'sosmed' => $sosmed,'deskrip' => $deskrip,'ftBerita' => $ftBerita]);
 
 $theme = $db->connection("SELECT * FROM theme")->fetchAll();
 $jmw->addData(['tehe' => $theme, 'seo' => '']);

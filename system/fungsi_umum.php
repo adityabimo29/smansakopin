@@ -155,7 +155,7 @@ function uploadGambar($name,$folder,$field){
 	
 }
 
-function lopoCompress($output,$input,$tipeFile,$level){
+function lopoCompress($output,$input,$tipeFile,$level = 0){
 	// setting
 	$setting = array(
 		'directory' => "images/".$output, // directory file compressed output

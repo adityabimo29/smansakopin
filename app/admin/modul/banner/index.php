@@ -1,11 +1,11 @@
-<?php $this->layout('template', ['hal'=>'Banner']) ?>
+<?php $this->layout('template', ['hal'=>'Video']) ?>
 <?php
-	$module = "banner";
+	$module = "video";
 
 	switch($act){
         case "list":
 ?>
-<!-- <a href="banner-add" class="btn btn-primary"> <i class="fa fa-plus"></i> Tambah Data</a> -->
+<a href="banner-add" class="btn btn-primary"> <i class="fa fa-plus"></i> Tambah Data</a>
 <br><br>
 <div class="table-responsive">
     <table id="my_table" class="table table-striped table-bordered">
@@ -14,7 +14,7 @@
                 <th>No</th>
                 <th>Nama</th>
                 <th>Url</th>
-                <th>Gambar</th>
+                <th>Thumbnail</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -30,12 +30,12 @@
                 <td><img src="../images/banner/small/<?php echo $row['gambar']; ?>"
                         style="width:100px;margin:0 auto;display:block">
                 </td>
-                <td style="width:19%"><a href="banner-edit-<?php echo $row['id_banner'] ?>"
-                        class="btn btn-warning btn-block"> <i class="fas fa-pencil-alt"></i> Edit</a>
-                    <!-- <a onClick="javascript: return confirm('Yakin untuk Menghapus data ?');"
+                <td style="width:19%"><a href="video-edit-<?php echo $row['id_banner'] ?>"
+                        class="btn btn-warning "> <i class="fas fa-pencil-alt"></i> Edit</a>
+                    <a onClick="javascript: return confirm('Yakin untuk Menghapus data ?');"
                         href="<?php echo $module; ?>-delete-<?php echo $row['id_banner']; ?>"
                         class="btn btn-danger " role="button" aria-pressed="true" style="min-width: 60px;"> <i
-                            class="fa fa-trash"></i> Delete</a> -->
+                            class="fa fa-trash"></i> Delete</a>
                 </td>
             </tr>
             <?php 
@@ -51,7 +51,7 @@
 ?>
 <div class="card">
     <div class="card-body">
-        <form action="banner" method="POST" enctype="multipart/form-data" >
+        <form action="video" method="POST" enctype="multipart/form-data" >
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
@@ -89,7 +89,7 @@
 ?>
 <div class="card">
     <div class="card-body">
-        <form action="banner" id="form-banner"  method="POST" enctype="multipart/form-data" >
+        <form action="video" id="form-banner"  method="POST" enctype="multipart/form-data" >
             <input type="hidden" name="id_banner" value="<?php echo $data['id_banner'] ?>">
             <div class="row">
                 <div class="col-md-12">

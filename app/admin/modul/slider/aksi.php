@@ -38,8 +38,8 @@ if ($act == 'update') {
 
                     $pathToImage = 'images/slider/' . $nama_file_unik;
                     $pathSmall = 'images/slider/small/' . $nama_file_unik;
-                    lopoCompress('slider', $pathToImage, $tipe_file2, 1);
-                    lopoCompress('slider/small', $pathToImage, $tipe_file2, 6);
+                    lopoCompress('slider', $pathToImage, $tipe_file2);
+                    lopoCompress('slider/small', $pathToImage, $tipe_file2, 3);
 
                     $image = new ImageResize($pathSmall);
                     $image->resize(675, 350);
@@ -114,7 +114,7 @@ elseif ($act == 'add') {
                     $pathToImage = 'images/slider/' . $nama_file_unik;
                     $pathSmall = 'images/slider/small/' . $nama_file_unik;
                     lopoCompress('slider', $pathToImage, $tipe_file2, 1);
-                    lopoCompress('slider/small', $pathToImage, $tipe_file2, 1);
+                    lopoCompress('slider/small', $pathToImage, $tipe_file2, 3);
 
                     $image = new ImageResize($pathSmall);
                     $image->resize(675, 350);

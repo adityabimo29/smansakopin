@@ -41,4 +41,66 @@ $(document).ready(function() {
 
         fixedContentPos: false
     });
+
+    $('.popup-foto').magnificPopup({
+        delegate: 'a', // child items selector, by clicking on it popup will open
+        type: 'image'
+    });
+
+    $("#owl-news").owlCarousel({
+        items : 4,
+        lazyLoad : true,
+        margin:20,
+        responsive : {
+            // breakpoint from 0 up
+            0 : {
+                items:2
+            },
+            // breakpoint from 480 up
+            480 : {
+                items:2
+            },
+            // breakpoint from 768 up
+            768 : {
+                items:3
+            }
+        }
+    });
+
+      /* Owl Custom Nav */
+	if ( typeof $.fn.owlCarousel == 'function') {
+
+		$(".owl-custom-nav .owl-next").on('click',function(){
+			$(this).closest('.owl-wrap').find('.owl-carousel').trigger('next.owl.carousel');
+		});
+		$(".owl-custom-nav .owl-prev").on('click',function(){
+			$(this).closest('.owl-wrap').find('.owl-carousel').trigger('prev.owl.carousel');
+		});
+
+	}
+
+    //LIGHT GALLERY
+    $('.intro-btn').lightGallery({
+        selector: '.video-source',
+        autoplay: true,
+        videoMaxWidth: '80%',
+        youtubePlayerParams: {
+            modestbranding: 1,
+            showinfo: 0,
+            rel: 0,
+            controls: 1
+        }
+    });
+
+    $('.list-videos').lightGallery({
+        selector: '.play-button',
+        youtubeThumbSize: 'maxresdefault',
+        youtubePlayerParams: {
+            modestbranding: 1,
+            showinfo: 0,
+            rel: 0,
+            controls: 1
+        }
+    });
+     
 });

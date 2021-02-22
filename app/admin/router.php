@@ -357,42 +357,42 @@ $router->mount('/admin', function () use ($router, $db, $jmw, $path,$imgname1) {
 
 /*
  * ------------------------------------------------------
- *  Router Banner
+ *  Router Video
  * ------------------------------------------------------
  */
 
-    /** Url Banner **/
-    $router->get('/banner', function () use ($jmw, $db) {
+    /** Url video **/
+    $router->get('/video', function () use ($jmw, $db) {
         $dataku = $db->connection("SELECT * FROM banner")->fetchAll();
         echo $jmw->render('modul/banner/index', ['act' => 'list', 'dataku' => $dataku]);
     });
 
-    /** Show Add Form Banner **/
-    $router->get('/banner-add', function () use ($jmw, $db) {
+    /** Show Add Form video **/
+    $router->get('/video-add', function () use ($jmw, $db) {
         echo $jmw->render('modul/banner/index', ['act' => 'add']);
     });
 
-    /** Show Edit Form Banner **/
-    $router->get('/banner-edit-(\d+)', function ($id) use ($jmw, $db) {
+    /** Show Edit Form video **/
+    $router->get('/video-edit-(\d+)', function ($id) use ($jmw, $db) {
         $data = $db->connection("SELECT * FROM banner WHERE id_banner = $id ")->fetch();
         echo $jmw->render('modul/banner/index', ['act' => 'edit', 'data' => $data]);
     });
 
-    /** Update dan Add Banner  **/
-    $router->post('/banner', function () use ($jmw, $db, $path) {
+    /** Update dan Add video  **/
+    $router->post('/video', function () use ($jmw, $db, $path) {
         if (isset($_POST['id_banner'])) {
             $act = "update";
         } else {
             $act = "add";
         }
-        $hal = "banner";
+        $hal = "video";
         include ($path . 'banner/aksi.php');
     });
 
-    /** Delete Banner **/
-    $router->get('/banner-delete-(\d+)', function ($id) use ($jmw, $db, $path) {
+    /** Delete video **/
+    $router->get('/video-delete-(\d+)', function ($id) use ($jmw, $db, $path) {
         $act = "remove";
-        $hal = "banner";
+        $hal = "video";
         include ($path . 'banner/aksi.php');
     });
 
